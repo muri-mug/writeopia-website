@@ -37,9 +37,9 @@ export default function Header() {
   const docs = i18next.t("header_documentation")
 
   const secondItems = [
-    { label: 'Download - MacOS', href: 'https://github.com/leandroBorgesFerreira/Writeopia/releases/download/app-desktop-alpha29/Writeopia.dmg' },
-    { label: 'Download - MacOS (Intel)', href: 'https://github.com/leandroBorgesFerreira/Writeopia/releases/download/app-desktop-alpha29/Writeopia-intel.dmg' },
-    { label: 'Download - Linux (.deb)', href: 'https://github.com/leandroBorgesFerreira/Writeopia/releases/download/app-desktop-alpha29/Writeopia.deb' },
+    { label: 'Download - MacOS', href: 'http://writeopia.io/apps-download/latest/Writeopia.dmg' },
+    { label: 'Download - MacOS (Intel)', href: 'http://writeopia.io/apps-download/latest/Writeopia-intel.dmg' },
+    { label: 'Download - Linux (.deb)', href: 'http://writeopia.io/apps-download/latest/Writeopia.deb' },
     { label: docs, href: 'https://docs.writeopia.io/' },
   ];
 
