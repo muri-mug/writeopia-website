@@ -27,35 +27,3 @@ code {
     monospace;
 }
 
-.not_found_container {
-  text-align: center;
-  margin-top: 20vh;
-}
-
-.not_found_message {
-  font-size: 1.5rem;
-  margin-top: 16px;
-}
-
-.not_found_image {
-  max-width: 400px;
-  height: auto;
-  margin-top: 16px;
-}
-
-.not_found_button {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  background-color: #6b46c1;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.not_found_button:hover {
-  background-color: #805ad5;
-}
