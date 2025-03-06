@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .not_found_container {
       text-align: center;
       margin-top: 8vh;
@@ -29,6 +37,27 @@
     }
     .not_found_button:hover {
       background-color: #805ad5;
+    }
+
+    body {
+      background-color: #f7fafc;
+      color: #2d3748;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1a202c;
+        color: #f7fafc;
+      }
+
+      .button {
+        background-color: #5a3e97;
+      }
+
+      .button:hover {
+        background-color: #7a4fbb;
+      }
     }
   </style>
   <meta charset="UTF-8">
