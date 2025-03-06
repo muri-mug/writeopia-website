@@ -1,0 +1,1 @@
+gsutil -m cp -r build/* gs://writeopia-landing-page
