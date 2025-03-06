@@ -2,7 +2,7 @@ import './App.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Root from './routes/root'
 import Privacy from './routes/privacy';
-import NotFound from './routes/not-found';
+import NotFound from './components/ui/not-found';
 
 function App() {
   return (
