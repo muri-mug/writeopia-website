@@ -6,13 +6,11 @@
   <title>404 - Page Not Found</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body className="w-screen pt-20 flex items-center justify-center">
-  <div className="text-center">
-    <p className="text-2xl mt-4">Oops! The page you're looking for doesn't exist.</p>        
-    <img src="/page_not_found.svg" alt="Not found" className=""/>
-    <a href="/" className="mt-6 inline-block px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-500 transition">
-        Go Back Home
-    </a>
+<body>
+  <div class="not_found_container">
+    <p class="not_found_message">Oops! The page you're looking for doesn't exist.</p>        
+    <img src="/page_not_found.svg" alt="Not found" class="not_found_image">
+    <a href="/" class="not_found_button">Go Back Home</a>
   </div>
 </body>
 </html>
