@@ -37,12 +37,12 @@ export default function Header() {
   const docs = i18next.t("header_documentation")
 
   const secondItems = [
-    { label: 'Download', href: '#/download' },
+    { label: 'Download', href: '/download' },
     { label: docs, href: 'https://docs.writeopia.io/' },
   ];
 
   const thirdItems = [
-    { label: 'Contact', href: '#/contact' },
+    { label: 'Contact', href: '/contact' },
     { label: 'Github', href: 'https://github.com/leandroBorgesFerreira/Writeopia' },
     { label: 'Linkedin', href: 'https://www.linkedin.com/company/writeopia/' },
   ];
