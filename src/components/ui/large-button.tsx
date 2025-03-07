@@ -4,7 +4,7 @@ interface LargeButtonProps {
   style?: CSSProperties;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  children?: ReactNode; // ReactNode covers any valid React children type
+  children?: ReactNode;
 }
 
 const LargeButton: React.FC<LargeButtonProps> = ({

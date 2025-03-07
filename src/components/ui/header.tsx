@@ -37,9 +37,7 @@ export default function Header() {
   const docs = i18next.t("header_documentation")
 
   const secondItems = [
-    { label: 'Download - MacOS', href: 'http://writeopia.io/apps-download/latest/Writeopia.dmg' },
-    { label: 'Download - MacOS (Intel)', href: 'http://writeopia.io/apps-download/latest/Writeopia-intel.dmg' },
-    { label: 'Download - Linux (.deb)', href: 'http://writeopia.io/apps-download/latest/Writeopia.deb' },
+    { label: 'Download', href: 'download' },
     { label: docs, href: 'https://docs.writeopia.io/' },
   ];
 
@@ -64,6 +62,7 @@ export default function Header() {
         <div className={`fixed inset-0 bg-gray-100 dark:bg-gray-900  z-30 pt-6 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
           <nav className="flex flex-col items-start gap-6 w-screen pt-28">
             <LargeLink to="/">Home</LargeLink>
+            
             <Divider />        
             <LargeButton onClick={toggleProductScreen}>
               {t('header_product')}
