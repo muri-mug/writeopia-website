@@ -24,9 +24,9 @@ export default function DownloadPage() {
       <section className="w-full py-8">
         <div className="flex flex-col lg:flex-row items-center sm:items-start pb-10 px-8 md:px-24 lg:px-32">
           <div className="space-y-2">
-            <h1 className="text-6xl font-bold pt-24">Download the latest version for {platform}</h1>
+            <h1 className="text-6xl font-bold pt-24">{t("download_title", "Download the latest version for")} {platform}</h1>
             <p className="text-muted-foreground text-3xl pb-10">
-                Have a great experience, without sharing your data.
+              {t("download_subtitle", "Have a great experience, without sharing your data.")}
             </p>
 
             <MainDownloadButton platform={platform}></MainDownloadButton>      
@@ -38,7 +38,7 @@ export default function DownloadPage() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {t("download_subtitle", "Choose your platform and download the latest version of Writeopia")}
+              {t("choose_platform", "Choose your platform and download the latest version of Writeopia")}
             </p>
           </div>
 
@@ -226,21 +226,25 @@ type DownloadButtonProps = {
 };
 
 const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
+  const { t } = useTranslation()
+
   return (
     <div className="flex flex-col items-center">
       {platform === "macos" ? (
         <>
-          <VariantLink to={getWriteopiaFile("macos")}><button>Download for Mac (Silicon)</button></VariantLink>
+          <VariantLink to={getWriteopiaFile("macos")}><button> {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}</button></VariantLink>
 
           <div className="h-4"/>
 
           <VariantLink to={getWriteopiaFile("macos-intel")}>
-            <button>Download for Mac (Intel)</button>
+            <button>{t("download_macos_intel", "Download for Intel Mac")}</button>
           </VariantLink>
         </>
       ) : (
         <VariantLink to={getWriteopiaFile(platform)}>
-          <button>Download for {platform.charAt(0).toUpperCase() + platform.slice(1)}</button>
+          <button>
+            {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
+            </button>
         </VariantLink>
       )}
     </div>

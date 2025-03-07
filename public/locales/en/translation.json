@@ -19,5 +19,15 @@
   "footer_privacy": "Privacy",
   "header_product": "Product",
   "header_comunity": "Comunity",
-  "header_documentation": "Documentation"
+  "header_documentation": "Documentation",
+  "download_subtitle": "Have a great experience, without sharing your data.",
+  "download_title": "Download the latest version for",
+  "windows_download_description": "Download Writeopia for Windows",
+  "macos_download_description": "Download Writeopia for macOS",
+  "linux_download_description": "Download Writeopia for Linux",
+  "download_windows_installer": "Download Windows Installer (.msi)",
+  "download_macos_apple_silicon": "Download for Apple Silicon",
+  "download_macos_intel": "Download for Intel Mac",
+  "choose_platform": "Choose your platform and download the latest version of Writeopia",
+  "download_linux_deb": "Download .deb package (Ubuntu, Debian)"
 }
