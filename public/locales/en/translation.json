@@ -29,5 +29,6 @@
   "download_macos_apple_silicon": "Download for Apple Silicon",
   "download_macos_intel": "Download for Intel Mac",
   "choose_platform": "Choose your platform and download the latest version of Writeopia",
-  "download_linux_deb": "Download .deb package (Ubuntu, Debian)"
+  "download_linux_deb": "Download .deb package (Ubuntu, Debian)",
+  "download_for": "Download for" 
 }
