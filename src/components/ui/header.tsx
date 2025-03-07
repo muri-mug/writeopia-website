@@ -42,6 +42,7 @@ export default function Header() {
   ];
 
   const thirdItems = [
+    { label: 'Contact', href: 'contact' },
     { label: 'Github', href: 'https://github.com/leandroBorgesFerreira/Writeopia' },
     { label: 'Linkedin', href: 'https://www.linkedin.com/company/writeopia/' },
   ];
