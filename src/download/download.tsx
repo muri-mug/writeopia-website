@@ -110,9 +110,7 @@ function WindowsDownloads() {
       <CardContent className="space-y-4">
         <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia.msi"
-          label={t("download_windows_installer", "Download Windows Installer (.msi)")}
-          version="alpha30"
-          size="68 MB"
+          label={t("download_windows_installer", "Download Windows Installer (.msi)")}          
         />
       </CardContent>
     </Card>
@@ -132,16 +130,12 @@ function MacOSDownloads() {
       <CardContent className="space-y-4">
         <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia.dmg"
-          label={t("download_macos_apple_silicon", "Download for Apple Silicon")}
-          version="alpha30"
-          size="77 MB"
+          label={t("download_macos_apple_silicon", "Download for Apple Silicon")}          
           highlighted={isAppleSilicon}
         />
         <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia-intel.dmg"
-          label={t("download_macos_intel", "Download for Intel Mac")}
-          version="alpha30"
-          size="76 MB"
+          label={t("download_macos_intel", "Download for Intel Mac")}          
           highlighted={!isAppleSilicon}
         />
       </CardContent>
@@ -161,9 +155,7 @@ function LinuxDownloads() {
       <CardContent className="space-y-4">
         <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia.deb"
-          label={t("download_linux_deb", "Download .deb package (Ubuntu, Debian)")}
-          version="alpha30"
-          size="63 MB"
+          label={t("download_linux_deb", "Download .deb package (Ubuntu, Debian)")}          
         />
       </CardContent>
     </Card>
@@ -172,15 +164,11 @@ function LinuxDownloads() {
 
 function DownloadButton({
   href,
-  label,
-  version,
-  size,
+  label,  
   highlighted = false,
 }: {
   href: string
-  label: string
-  version: string
-  size: string
+  label: string  
   highlighted?: boolean
 }) {
   return (
@@ -189,10 +177,7 @@ function DownloadButton({
     >
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h3 className="font-medium">{label}</h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            {version} • {size}
-          </p>
+          <h3 className="font-medium">{label}</h3>          
         </div>
         <Button asChild>
           <a href={href} className="flex items-center gap-2">
