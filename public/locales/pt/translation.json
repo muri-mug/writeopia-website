@@ -30,5 +30,9 @@
   "download_macos_apple_silicon": "Baixar para Apple Silicon",
   "download_macos_intel": "Baixar para Intel Mac",
   "download_linux_deb": "Baixar pacote .deb (Ubuntu, Debian)",
-  "download_for": "Baixar para" 
+  "download_for": "Baixar para",
+  "contact_title": "Contato",
+  "contact_subtitle": "Nós queremos te ouvir! Você tem dúvidas, feedback ou precisa de ajuda?",
+  "contact_send_email": "Nos envie um e-mail para",
+  "contact_time_reply": "Normalmente, respondemos dentro de 24 a 48 horas em dias úteis."
 }

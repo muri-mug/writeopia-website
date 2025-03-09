@@ -30,5 +30,9 @@
   "download_macos_intel": "Download for Intel Mac",
   "choose_platform": "Choose your platform and download the latest version of Writeopia",
   "download_linux_deb": "Download .deb package (Ubuntu, Debian)",
-  "download_for": "Download for" 
+  "download_for": "Download for",
+  "contact_title": "Contact Us",
+  "contact_subtitle": "We'd love to hear from you. Have questions, feedback, or need assistance?",
+  "contact_send_email": "You can send an email at",
+  "contact_time_reply": "We typically respond to all inquiries within 24-48 hours during business days."
 }
