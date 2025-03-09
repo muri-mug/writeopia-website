@@ -22,7 +22,7 @@ export default function DownloadPage() {
   return (
     <Suspense fallback="loading">
       <section className="w-full py-8">
-        <div className="flex flex-col lg:flex-row items-center sm:items-start pb-10 px-8 md:px-24 lg:px-32">
+        <div className="flex flex-col lg:flex-row items-center pb-10 px-8 md:px-24 lg:px-32">
           <div className="space-y-2">
             <h1 className="text-6xl font-bold pt-24">{t("download_title", "Download the latest version for")} {platform}</h1>
             <p className="text-muted-foreground text-3xl pb-10">
