@@ -179,7 +179,7 @@ function DownloadButton({
         <div>
           <h3 className="font-medium">{label}</h3>          
         </div>
-        <Button asChild>
+        <Button asChild className="rounded-xl">
           <a href={href} className="flex items-center gap-2">
             <Download className="h-4 w-4" />
             Download
@@ -218,20 +218,29 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
     <div className="flex flex-col items-center">
       {platform === "macos" ? (
         <>
-          <DefaultLink to={getWriteopiaFile("macos")}><button> {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}</button></DefaultLink>
+          <Button asChild className="rounded-xl">
+            <a href={getWriteopiaFile("macos-intel")} className="flex items-center gap-2">
+              <Download className="h-4 w-4" /> 
+              {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}              
+            </a>          
+          </Button>
 
           <div className="h-4"/>
 
-          <DefaultLink to={getWriteopiaFile("macos-intel")}>
-            <button>{t("download_macos_intel", "Download for Intel Mac")}</button>
-          </DefaultLink>
+          <Button asChild className="rounded-xl">
+            <a href={getWriteopiaFile("macos-intel")} className="flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              {t("download_macos_intel", "Download for Intel Mac")}
+            </a>          
+          </Button>
         </>
       ) : (
-        <DefaultLink to={getWriteopiaFile(platform)}>
-          <button>
-            {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
-            </button>
-        </DefaultLink>
+        <Button asChild className="rounded-xl">
+          <a href={getWriteopiaFile("macos")} className="flex items-center gap-2">
+            <Download className="h-4 w-4" />
+              {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
+          </a>       
+        </Button>
       )}
     </div>
   )
