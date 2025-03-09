@@ -219,7 +219,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
       {platform === "macos" ? (
         <>
           <Button asChild className="rounded-xl">
-            <a href={getWriteopiaFile("macos-intel")} className="flex items-center gap-2">
+            <a href={getWriteopiaFile("macos")} className="flex items-center gap-2">
               <Download className="h-4 w-4" /> 
               {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}              
             </a>          
@@ -236,7 +236,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
         </>
       ) : (
         <Button asChild className="rounded-xl">
-          <a href={getWriteopiaFile("macos")} className="flex items-center gap-2">
+          <a href={getWriteopiaFile(platform)} className="flex items-center gap-2">
             <Download className="h-4 w-4" />
               {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
           </a>       
