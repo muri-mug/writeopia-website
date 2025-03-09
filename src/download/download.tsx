@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { Download, Apple, ComputerIcon as Windows, LaptopIcon as Linux, Info } from "lucide-react"
-import VariantLink from "../components/ui/variant-link"
+import DefaultLink from "../components/ui/default-link"
 
 type Platform = "windows" | "macos" | "linux"
 
@@ -32,7 +32,8 @@ export default function DownloadPage() {
             <MainDownloadButton platform={platform}></MainDownloadButton>      
           </div>
 
-          <img src="/download_teaser.png" alt="Screenshot of Writeopia" className="w-auto h-max-[600] object-cover object-cover lg:pl-20 pl-0 pt-10 lg:pt-0" />
+          <img src="/download_teaser_light.png" alt="Screenshot of Writeopia"  className="w-auto h-max-[600] object-cover object-cover lg:pl-20 pl-0 pt-10 lg:pt-0 dark:hidden" />
+          <img src="/download_teaser_dark.png" alt="Screenshot of Writeopia" className="w-auto h-max-[600] object-cover object-cover lg:pl-20 pl-0 pt-10 lg:pt-0 hidden dark:block" />
         </div>
 
         <div className="container px-4 md:px-6 mx-auto">
@@ -184,7 +185,7 @@ function DownloadButton({
 }) {
   return (
     <div
-      className={`p-4 rounded-lg border ${highlighted ? "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700" : "border-gray-200 dark:border-gray-800"}`}
+      className={`p-4 rounded-xl border ${highlighted ? "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700" : "border-gray-200 dark:border-gray-800"}`}
     >
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
@@ -232,20 +233,20 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
     <div className="flex flex-col items-center">
       {platform === "macos" ? (
         <>
-          <VariantLink to={getWriteopiaFile("macos")}><button> {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}</button></VariantLink>
+          <DefaultLink to={getWriteopiaFile("macos")}><button> {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}</button></DefaultLink>
 
           <div className="h-4"/>
 
-          <VariantLink to={getWriteopiaFile("macos-intel")}>
+          <DefaultLink to={getWriteopiaFile("macos-intel")}>
             <button>{t("download_macos_intel", "Download for Intel Mac")}</button>
-          </VariantLink>
+          </DefaultLink>
         </>
       ) : (
-        <VariantLink to={getWriteopiaFile(platform)}>
+        <DefaultLink to={getWriteopiaFile(platform)}>
           <button>
             {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
             </button>
-        </VariantLink>
+        </DefaultLink>
       )}
     </div>
   )
