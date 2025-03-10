@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Instagram, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -13,9 +14,11 @@ export default function Footer() {
       <nav className="sm:ml-auto flex gap-4 sm:gap-6">
         {/* <a className="text-xs hover:underline underline-offset-4" href="/">
           Terms of Service
-        </a> */}
-        <Link className="text-xs hover:underline underline-offset-4" to="/privacy">
-        {t('footer_privacy')}
+        </a> */}      
+        <Link to="https://www.linkedin.com/company/writeopia"><Linkedin /></Link>
+        <Link to="https://www.instagram.com/writeopia.io"><Instagram /></Link>
+        <Link className="text-s hover:underline underline-offset-4 text-center" to="/privacy">
+          {t('footer_privacy')}
         </Link>
       </nav>
     </footer>
