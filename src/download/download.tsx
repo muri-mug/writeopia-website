@@ -6,8 +6,7 @@ import { useTranslation } from "react-i18next"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
 import { Button } from "../components/ui/button"
-import { Download, Apple, ComputerIcon as Windows, LaptopIcon as Linux, Info } from "lucide-react"
-import DefaultLink from "../components/ui/default-link"
+import { Download, Apple, ComputerIcon as Windows, LaptopIcon as Linux } from "lucide-react"
 
 type Platform = "windows" | "macos" | "linux"
 
@@ -55,7 +54,6 @@ export default function DownloadPage() {
 const detectPlatform = (): "windows" | "linux" | "macos" => {
     if (typeof window === "undefined") return "windows";
     
-    const userAgent = window.navigator.userAgent.toLowerCase();
     const platform = window.navigator.platform.toLowerCase();
     
     if (platform.includes("win")) return "macos";
