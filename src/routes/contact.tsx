@@ -1,6 +1,5 @@
 import Header from "../components/ui/header"
 import Footer from "../components/ui/footer"
-import DownloadPage from "../download/download"
 import React from "react";
 import ContactPage from "../contatus/contactus";
 
