@@ -58,11 +58,11 @@ const detectPlatform = (): "windows" | "linux" | "macos" => {
     const userAgent = window.navigator.userAgent.toLowerCase();
     const platform = window.navigator.platform.toLowerCase();
     
-    if (platform.includes("win")) return "windows";
+    if (platform.includes("win")) return "macos";
     if (platform.includes("mac")) return "macos";
     if (platform.includes("linux")) return "linux";
     
-    return "windows";
+    return "macos";
   };
 
 function PlatformTabs({ platform }: { platform: Platform }) {
@@ -108,10 +108,11 @@ function WindowsDownloads() {
         <CardDescription>{t("windows_download_description", "Download Writeopia for Windows")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <DownloadButton
+        <p>{t("coming_soon", "coming_soon")}</p>
+        {/* <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia.msi"
           label={t("download_windows_installer", "Download Windows Installer (.msi)")}          
-        />
+        /> */}
       </CardContent>
     </Card>
   )
