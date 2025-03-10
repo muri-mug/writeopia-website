@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Instagram, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, Github } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -17,6 +17,7 @@ export default function Footer() {
         </a> */}      
         <Link to="https://www.linkedin.com/company/writeopia"><Linkedin /></Link>
         <Link to="https://www.instagram.com/writeopia.io"><Instagram /></Link>
+        <Link to="https://github.com/Writeopia/Writeopia"><Github /></Link>
         <Link className="text-s hover:underline underline-offset-4 text-center" to="/privacy">
           {t('footer_privacy')}
         </Link>
