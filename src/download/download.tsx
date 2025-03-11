@@ -135,6 +135,16 @@ function MacOSDownloads() {
           label={t("download_macos_intel", "Download for Intel Mac")}          
           highlighted={!isAppleSilicon}
         />
+
+        <div className="h-2"/>
+
+        <div>      
+          <p className="text-sm text-gray-500 dark:text-gray-400 ">{t("homebrew_silicon", "Install with Homebrew (Silicon):")}</p>
+          <div className="h-2"/>
+          <pre className="bg-gray-100 dark:bg-gray-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
+            <code>brew tap writeopia/tap{"\n"}brew install --cask writeopia</code>
+          </pre>
+        </div>
       </CardContent>
     </Card>
   )
@@ -229,7 +239,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
               <Download className="h-4 w-4" />
               {t("download_macos_intel", "Download for Intel Mac")}
             </a>          
-          </Button>
+          </Button>          
         </>
       ) : (
         <Button asChild className="rounded-xl">
