@@ -176,7 +176,7 @@ function LinuxDownloads() {
 function LinuxAptInstall() {
   const { t } = useTranslation()
 
-  const apt_command = "curl -fsSL https://writeopia.io/apt/public.key | sudo tee /usr/share/keyrings/writeopia-archive-keyring.gpg > /dev/null\n" +
+  const apt_command = "echo \"deb https://writeopia.io/apt stable main\" | sudo tee /etc/apt/sources.list.d/writeopia.list \n" +
     "wget -O - https://writeopia.io/apt/public.key > writeopia.key \n" +
     "sudo apt-key add writeopia.key \n" +
     "sudo apt update \n" +
