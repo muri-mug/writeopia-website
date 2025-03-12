@@ -153,11 +153,6 @@ function MacOSDownloads() {
 function LinuxDownloads() {
   const { t } = useTranslation()
 
-  const apt_command = "curl -fsSL https://writeopia.io/apt/writeopia-archive-keyring.gpg | sudo tee /usr/share/keyrings/writeopia-archive-keyring.gpg > /dev/null\n" +
-    "echo \"deb [signed-by=/usr/share/keyrings/writeopia-archive-keyring.gpg] https://writeopia.io/apt stable main\" | sudo tee /etc/apt/sources.list.d/writeopia.list\n" +
-    "sudo apt update\n" +
-    "sudo apt install writeopia"
-
   return (
     <Card>
       <CardHeader>
@@ -172,18 +167,32 @@ function LinuxDownloads() {
 
         <div className="h-2"/>
 
-        <div>      
-          <p className="text-sm text-gray-500 dark:text-gray-400 ">{t("apt_install", "Install using apt (Ubuntu and Debian based)")}</p>
-          <div className="h-2"/>
-          <pre className="bg-gray-100 dark:bg-gray-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
-            <code>                          
-              {apt_command}
-            </code>
-          </pre>
-        </div>
+        <LinuxAptInstall />
       </CardContent>
     </Card>
   )
+}
+
+function LinuxAptInstall() {
+  const { t } = useTranslation()
+
+  const apt_command = "curl -fsSL https://writeopia.io/apt/public.key | sudo tee /usr/share/keyrings/writeopia-archive-keyring.gpg > /dev/null\n" +
+    "wget -O - https://writeopia.io/apt/public.key > writeopia.key \n" +
+    "sudo apt-key add writeopia.key \n" +
+    "sudo apt update \n" +
+    "sudo apt install writeopia"
+
+    return (
+    <div>      
+      <p className="text-sm text-gray-500 dark:text-gray-400 ">{t("apt_install", "Install using apt (Ubuntu and Debian based)")}</p>
+      <div className="h-2"/>
+      <pre className="bg-gray-100 dark:bg-gray-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
+        <code>                          
+          {apt_command}
+        </code>
+      </pre>
+    </div>
+    )
 }
 
 function DownloadButton({
@@ -240,30 +249,49 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
 
   return (
     <div className="flex flex-col items-center">
-      {platform === "macos" ? (
+      {platform === "macos" || platform === "linux" ? (
         <>
-          <Button asChild className="rounded-xl">
-            <a href={getWriteopiaFile("macos")} className="flex items-center gap-2">
-              <Download className="h-4 w-4" /> 
-              {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}              
-            </a>          
-          </Button>
+          {platform === "macos" && (
+            <>
+              <Button asChild className="rounded-xl">
+                <a href={getWriteopiaFile("macos")} className="flex items-center gap-2">
+                  <Download className="h-4 w-4" />
+                  {t("download_macos_apple_silicon", "Download for Mac (Silicon)")}
+                </a>
+              </Button>
 
-          <div className="h-4"/>
+              <div className="h-4" />
 
-          <Button asChild className="rounded-xl">
-            <a href={getWriteopiaFile("macos-intel")} className="flex items-center gap-2">
-              <Download className="h-4 w-4" />
-              {t("download_macos_intel", "Download for Intel Mac")}
-            </a>          
-          </Button>          
+              <Button asChild className="rounded-xl">
+                <a href={getWriteopiaFile("macos-intel")} className="flex items-center gap-2">
+                  <Download className="h-4 w-4" />
+                  {t("download_macos_intel", "Download for Intel Mac")}
+                </a>
+              </Button>
+            </>
+          )}
+
+          {platform === "linux" && (
+            <div className=" max-w-[300px] sm:max-w-[600px] ">
+              <Button asChild className="rounded-xl">
+                <a href={getWriteopiaFile("linux")} className="flex items-center gap-2">
+                  <Download className="h-4 w-4" />
+                  {t("download_linux", "Download for Linux")}
+                </a>
+              </Button>
+
+              <div className="h-8"/>
+
+              <LinuxAptInstall />
+            </div>
+          )}
         </>
       ) : (
         <Button asChild className="rounded-xl">
           <a href={getWriteopiaFile(platform)} className="flex items-center gap-2">
             <Download className="h-4 w-4" />
-              {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
-          </a>       
+            {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
+          </a>
         </Button>
       )}
     </div>
