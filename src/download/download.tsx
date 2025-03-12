@@ -153,6 +153,11 @@ function MacOSDownloads() {
 function LinuxDownloads() {
   const { t } = useTranslation()
 
+  const apt_command = "curl -fsSL https://writeopia.io/apt/writeopia-archive-keyring.gpg | sudo tee /usr/share/keyrings/writeopia-archive-keyring.gpg > /dev/null\n" +
+    "echo \"deb [signed-by=/usr/share/keyrings/writeopia-archive-keyring.gpg] https://writeopia.io/apt stable main\" | sudo tee /etc/apt/sources.list.d/writeopia.list\n" +
+    "sudo apt update\n" +
+    "sudo apt install writeopia"
+
   return (
     <Card>
       <CardHeader>
@@ -164,6 +169,18 @@ function LinuxDownloads() {
           href="https://writeopia.io/apps-download/latest/Writeopia.deb"
           label={t("download_linux_deb", "Download .deb package (Ubuntu, Debian)")}          
         />
+
+        <div className="h-2"/>
+
+        <div>      
+          <p className="text-sm text-gray-500 dark:text-gray-400 ">{t("apt_install", "Install using apt (Ubuntu and Debian based)")}</p>
+          <div className="h-2"/>
+          <pre className="bg-gray-100 dark:bg-gray-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
+            <code>                          
+              {apt_command}
+            </code>
+          </pre>
+        </div>
       </CardContent>
     </Card>
   )

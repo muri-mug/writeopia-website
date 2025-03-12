@@ -36,5 +36,6 @@
   "contact_send_email": "Nos envie um e-mail para",
   "contact_time_reply": "Normalmente, respondemos dentro de 24 a 48 horas em dias úteis.",
   "coming_soon": "Em breve",
-  "homebrew_silicon": "Instalar com Homebrew (Silicon):"
+  "homebrew_silicon": "Instalar com Homebrew (Silicon):",
+  "apt_install": "Instalar usando apt (Ubuntu and Debian based)"
 }
