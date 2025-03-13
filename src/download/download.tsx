@@ -141,7 +141,7 @@ function MacOSDownloads() {
         <div>      
           <p className="text-sm text-gray-500 dark:text-gray-400 ">{t("homebrew_silicon", "Install with Homebrew (Silicon):")}</p>
           <div className="h-2"/>
-          <pre className="bg-gray-100 dark:bg-gray-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
+          <pre className="bg-gray-100 dark:bg-neutral-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
             <code>brew tap writeopia/tap{"\n"}brew install --cask writeopia</code>
           </pre>
         </div>
@@ -186,7 +186,7 @@ function LinuxAptInstall() {
     <div>      
       <p className="text-sm text-gray-500 dark:text-gray-400 ">{t("apt_install", "Install using apt (Ubuntu and Debian based)")}</p>
       <div className="h-2"/>
-      <pre className="bg-gray-100 dark:bg-gray-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
+      <pre className="bg-gray-100 dark:bg-neutral-800 p-2 pl-4 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-200 text-start">
         <code>                          
           {apt_command}
         </code>
@@ -206,7 +206,7 @@ function DownloadButton({
 }) {
   return (
     <div
-      className={`p-4 rounded-xl border ${highlighted ? "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700" : "border-gray-200 dark:border-gray-800"}`}
+      className={`p-4 rounded-xl border dark:bg-neutral-900  ${highlighted ? "bg-gray-100  border-gray-300 dark:border-gray-700" : "border-gray-200 dark:border-gray-800"}`}
     >
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>

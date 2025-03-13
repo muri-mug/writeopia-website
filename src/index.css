@@ -6,7 +6,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: rgb(17 24 39);
+    --color-bg: rgb(7, 9, 17);
     --color-fg: rgb(243 244 246);
   }
 }

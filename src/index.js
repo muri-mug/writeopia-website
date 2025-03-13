@@ -7,7 +7,7 @@ import "./i18n";
 
 function ColorTheme() {
   return (
-    <main className="bg-gray-100 dark:bg-gray-900 min-h-screen flex transition-colors duration-200 text-gray-900 dark:text-white">
+    <main className="bg-gray-100 dark:bg-neutral-950 min-h-screen flex transition-colors duration-200 text-neutral-950 dark:text-white">
       <App />
     </main>
   )

@@ -35,7 +35,7 @@ export default function Component() {
 
 
   const renderPlatformCard = (platform: { name: string; color: string; description: string }) => (
-    <div key={platform.name} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl flex flex-col items-center justify-center">
+    <div key={platform.name} className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-xl flex flex-col items-center justify-center">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -55,7 +55,7 @@ export default function Component() {
 
   return (
     <Suspense fallback="loading">
-      <section className="w-full pt-48 pb-12 md:pb-12 pt-12 lg:pb-24 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-900">
+      <section className="w-full pt-48 pb-12 md:pb-12 pt-12 lg:pb-24 bg-gradient-to-b from-white to-gray-100 dark:from-neutral-950 dark:to-neutral-950">
         <div className="container px-4 md:px-6 mx-auto max-w-6xl">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">{t('compatibility_title')}</h2>
