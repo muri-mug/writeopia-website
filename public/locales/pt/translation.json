@@ -37,5 +37,13 @@
   "contact_time_reply": "Normalmente, respondemos dentro de 24 a 48 horas em dias úteis.",
   "coming_soon": "Em breve",
   "homebrew_silicon": "Instalar com Homebrew (Silicon):",
-  "apt_install": "Instalar usando apt (Ubuntu and Debian based)"
+  "apt_install": "Instalar usando apt (Ubuntu and Debian based)",
+  "privacy_footer": "Para informações sobre privacidade, nos contate usando as informações acima.",
+  "privacy_body1": "Sua privacidade é levada muito a sério na Writeopia. Entendemos como é frustrante ter suas informações coletadas sem seu consentimento.",
+  "privacy_body2": "Na Writeopia nós temos os seguintes princípios:",
+  "privacy_principle1": "- Usuários tem total controle te onde a sua informação vai, podendo escolher não enviar nenhuma informaçãoo através do aplicativo a qualquer moment. Se uma funcionalidade precisar de informação para funcionar, é deixado claro e sempre haverá a possibilidade de não envia-la e desabilitar a função.",
+  "privacy_principle2": "- O aplicativo sempre terá suporte a uso offline.",
+  "privacy_principle3": "- Não compartilhamos sua informação com exeção por motivos legais.",
+  "privacy_principle4": "- Não predimos informação pessoal a menos que realmente precisemos.",
+  "privacy_principle5": "- Não guardamos informação pessoasl, a menos que seja necessários para o funcionamento da plataforma."
 }

@@ -37,5 +37,13 @@
   "contact_time_reply": "We typically respond to all inquiries within 24-48 hours during business days.",
   "coming_soon": "Coming soon",
   "homebrew_silicon": "Install with Homebrew (Silicon):",
-  "apt_install": "Install using apt (Ubuntu and Debian based)"
+  "apt_install": "Install using apt (Ubuntu and Debian based)",
+  "privacy_footer": "For privacy-related inquiries or to exercise your rights regarding your personal data, please contact us using the information above.",
+  "privacy_body1": "We take privacy very seriously and we understand how frustrating it is when apps collect your data without your knowledge.",
+  "privacy_body2": "At Writeopia we have the fundamental principles:",
+  "privacy_principle1": "- Users have full control over their data and can choose not to send any information through the app at any time. If a feature requires data to function, the app will clearly inform the user about this need before any data is shared.",
+  "privacy_principle2": "- The app will always support full offline usage.",
+  "privacy_principle3": "- We don't share your personal information with anyone except to comply with the law or protect our rights.",
+  "privacy_principle4": "- We don't ask you for personal information unless we truly need it.",
+  "privacy_principle5": "- We don't store personal information on our servers unless required for the on-going operation of the service."
 }
