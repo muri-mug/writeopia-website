@@ -16,7 +16,7 @@ export default function AddressSection() {
               <h3 className="font-semibold">Our Address</h3>
             </div>
             <address className="not-italic text-muted-foreground">
-              Writeopia Labs - by Taipus Code.
+              Writeopia Labs - by Taipus Code
               <br />
               Rua Francisco Deslandes, 648, apto 1103                          
               <br />
