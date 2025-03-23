@@ -16,7 +16,7 @@ export default function AddressSection() {
               <h3 className="font-semibold">Our Address</h3>
             </div>
             <address className="not-italic text-muted-foreground">
-              Writeopia Labs - by Taipus Code
+              Taipus Code
               <br />
               Rua Francisco Deslandes, 648, apto 1103                          
               <br />
@@ -33,6 +33,12 @@ export default function AddressSection() {
             <p className="text-muted-foreground">
               <a href="mailto:privacy@writeopia.com" className="hover:underline">
                 privacy@writeopia.io
+              </a>
+            </p>
+
+            <p className="text-muted-foreground">
+              <a href="mailto:leandro@taipuscode.com" className="hover:underline">
+                leandro@taipuscode.com
               </a>
             </p>
           </div>
