@@ -16,7 +16,14 @@ export default function NewsletterSection() {
           {t('call_to_alpha_subtitle', 'Download our alpha version and try our platform.')}
         </p>  
         <div className="space-y-2 space-x-2 pt-3">              
-          <DefaultLink to='download'>{t('call_to_alpha')}</DefaultLink>
+          <DefaultLink to='download'>{t('call_to_alpha')}</DefaultLink>    
+        </div>
+
+        <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl pt-8">
+          {t('wishlist_teaser', 'Join Writeopia newsletter now to stay updated on its latest features!')}
+        </p>  
+        <div className="space-y-2 space-x-2 pt-3">         
+          <DefaultLink to='https://forms.gle/QFoewRrehmkXWuMo8'>Join Waitlist</DefaultLink>    
         </div>
       </section>
     </Suspense>
