@@ -300,7 +300,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
         {t('wishlist_teaser', 'Join Writeopia newsletter now to stay updated on its latest features!')}
       </p>  
       <div className="space-y-2 space-x-2 pt-3">         
-        <DefaultLink to='https://forms.gle/QFoewRrehmkXWuMo8'>Join Waitlist</DefaultLink>    
+        <DefaultLink to='https://forms.gle/QFoewRrehmkXWuMo8'>{t('join_newsletter', 'Join our newsletter')}</DefaultLink>    
       </div>
     </div>
   )

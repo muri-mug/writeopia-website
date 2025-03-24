@@ -8,12 +8,12 @@ export default function AddressSection() {
   return (
     <section className="py-12 text-center flex flex-col items-center">
       <div className="container px-4 md:px-6 text-center">
-        <h2 className="text-2xl font-bold tracking-tight mb-6">Contact Information</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-6">{t('contact_info', 'Contact Information')}</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 max-w-3xl mx-auto">
           <div className="flex flex-col items-center gap-2">
             <div className="flex items-center justify-center gap-2">
               <MapPin className="h-5 w-5 text-primary" />
-              <h3 className="font-semibold">Our Address</h3>
+              <h3 className="font-semibold">{t('our_address', 'Our Address')}</h3>
             </div>
             <address className="not-italic text-muted-foreground">
               Taipus Code
@@ -22,7 +22,7 @@ export default function AddressSection() {
               <br />
               Belo Horizonte, MG 30310-530
               <br />
-              Brazil
+              {t('country', 'Brazil')}
             </address>
           </div>          
           <div className="flex flex-col items-center gap-2">
