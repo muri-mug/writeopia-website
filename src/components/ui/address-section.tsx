@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react"
+import { Link, Mail, MapPin, Phone } from "lucide-react"
 import React from 'react';
 import { useTranslation } from "react-i18next";
 
@@ -16,7 +16,14 @@ export default function AddressSection() {
               <h3 className="font-semibold">{t('our_address', 'Our Address')}</h3>
             </div>
             <address className="not-italic text-muted-foreground">
-              Taipus Code
+                      <a 
+                href="https://taipuscode.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-500 hover:underline"
+              >
+                Taipus Code
+              </a>
               <br />
               Rua Francisco Deslandes, 648, apto 1103                          
               <br />
