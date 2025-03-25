@@ -12,7 +12,8 @@ export default function WriteopiaExplainer() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        How Writeopia Works
+        {t('work_it_works_title', 'How Writeopia Works')}
+        
       </motion.h1>
       <motion.p
         className="text-lg text-gray-400 max-w-4xl mb-6"
@@ -56,9 +57,8 @@ function CardInstall() {
       transition={{ delay: 0.3 }}
     >
       <img src="/Loading.png" alt="Screenshot of Writeopia" className="w-60 h-60 md:w-80 md:h-80 pt-10 object-cover" />
-      {/* <div className="text-blue-400 mb-4">{icon}</div> */}
       <h2 className="text-2xl font-semibold mb-3">{t('install_ollama', 'Install Ollama')}</h2>
-      <p className="text-lg font-semibold text-gray-400 pb-14 px-10">Ollama runs directly on your machine. Go to <a href='https://ollama.com' className='underline'>ollama.com</a> and download the app. Start it in your machine and you can use Writeopia with AI help!</p>
+      <p className="text-lg font-semibold text-gray-400 pb-14 px-10">{t('install_ollama_description_1', 'Ollama runs directly on your machine. Go to ')}<a href='https://ollama.com' className='underline'>ollama.com</a>{t('install_ollama_description_2', ' and download the app. Start it in your machine and you can use Writeopia with AI help!')}</p>
     </motion.div>
   );
 }
@@ -71,8 +71,7 @@ function FeatureCard3({ icon, title, description, description2, description3 }) 
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
     >
-      <img src={icon} alt="Screenshot of Writeopia" className="w-60 h-60 md:w-80 md:h-80 pt-10 object-cover" />
-      {/* <div className="text-blue-400 mb-4">{icon}</div> */}
+      <img src={icon} alt="Screenshot of Writeopia" className="w-60 h-60 md:w-80 md:h-80 pt-10 object-cover" />    
       <h2 className="text-2xl font-semibold mb-3">{title}</h2>
       <p className="text-lg font-semibold font-semibold text-gray-400 py-2 px-10">{description}</p>
       <p className="text-lg font-semibold text-gray-400 pt-2 pb-2 px-10">{description2}</p>

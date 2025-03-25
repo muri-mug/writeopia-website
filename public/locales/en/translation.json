@@ -61,5 +61,8 @@
   "start_writing": "Start writing!",
   "start_writing_description1": "After the model is configured in your machine, you can make questions and get help to write. Just select the question in the text and select \"Ask AI\".",
   "start_writing_description2": "Your computer will run the AI for you, so your data never leaves your computer and you never reach a limit of usage.",
-  "happy_writting": "Happy writting!"
+  "happy_writting": "Happy writting!",
+  "install_ollama_description_1": "Ollama runs directly on your machine. Go to ",
+  "install_ollama_description_2": " and download the app. Start it in your machine and you can use Writeopia with AI help!",
+  "work_it_works_title": "How Writeopia Works"
 }
