@@ -51,7 +51,7 @@
   "contact_info": "Informações de contato",
   "our_address": "Endereço",
   "country": "Brasil",
-  "how_it_works_experiment_description1":"Writeopia pode interagir com muitos modelos de IA através do Ollama. Esse modelos são como pequenos assistências de IA, procure pelos que você prefere ou apenas clique nos recomendados.",
+  "how_it_works_experiment_description1":"Writeopia pode interagir com muitos modelos de IA através do Ollama. Esse modelos são como pequenos assistentes de IA, procure pelos que você prefere ou apenas clique nos recomendados.",
   "install_ollama": "Instale o Ollama",
   "how_it_works": "Como funciona",
   "how_it_works_subtitle": "Writeopia é um editor em tempo real que permite que você use IA com total privacidade. Ele use o aplicativo Ollama para gerar resposta de IA diretamente em seu computador. Seus dados nunca deixam seu computador.",
@@ -59,10 +59,10 @@
   "download_and_choose_ai": "Depois de baixar-los, você pode escolher qual usar.",
   "experiment_ai_suggestion": "Não sabe qual escolher? Apenas clique em um dos recomendados e se divirta!",
   "start_writing": "Comece a escrever!",
-  "start_writing_description1": "Depois do modelo ser configurado em seu computador, você pode fazer perguntas e receber ajuda na escrita. Apenas selecione o text e faça a pergunta clicando em \"Pergunta a IA\".",
+  "start_writing_description1": "Depois do modelo ser configurado em seu computador, você pode fazer perguntas e receber ajuda na escrita. Apenas selecione o texto e faça a pergunta clicando em \"Pergunte à IA\".",
   "start_writing_description2": "O seu computador processa a IA, então seus dados nunca saem de sua máquina e você nunca atinge um limite de uso.",
   "happy_writting": "Boa escrita!",
   "install_ollama_description_1": "Ollama funciona diretamente em seu computador. Baixe em ",
-  "install_ollama_description_2": " e inicie o Ollama. Você poderá usar inteligência artifical no Writeopia!",
+  "install_ollama_description_2": " e inicie ele. Agora você pode usar inteligência artifical no Writeopia!",
   "work_it_works_title": "Como o Writeopia funciona"
 }
