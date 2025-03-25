@@ -1,4 +1,4 @@
-import { Link, Mail, MapPin, Phone } from "lucide-react"
+import {  Mail, MapPin } from "lucide-react"
 import React from 'react';
 import { useTranslation } from "react-i18next";
 
