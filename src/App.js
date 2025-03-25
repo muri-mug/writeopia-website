@@ -4,7 +4,8 @@ import Root from './routes/root'
 import Privacy from './routes/privacy';
 import Download from "./routes/download"
 import ContactRoute from "./routes/contact"
-import NotFound from './components/ui/not-found';
+import HowWorksPage from "./routes/how-works"
+import NotFound from './components/ui/not-found'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Route path="/" element={<Root />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/download" element={<Download />} />
-          <Route path="/contact" element={<ContactRoute />} />      
+          <Route path="/contact" element={<ContactRoute />} />     
+          <Route path="/explanation" element={<HowWorksPage />} />     
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

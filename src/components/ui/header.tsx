@@ -41,8 +41,6 @@ export default function Header() {
     { label: docs, href: 'https://docs.writeopia.io/' },
   ];
 
-  
-
   const thirdItems = [
     { label: t('contact_title', 'Contact Us'), href: '/contact' },
     { label: 'Github', href: 'https://github.com/leandroBorgesFerreira/Writeopia' },
@@ -56,6 +54,7 @@ export default function Header() {
         </Link>
         <nav className="ml-auto pr-10 hidden md:flex items-center">
           <HeaderLink to="/">Home</HeaderLink>
+          <HeaderLink to="/explanation">{t('how-it-works', 'How it works')}</HeaderLink>
           <AnimatedDropDown menuItems={secondItems} label={t('header_product')} />
           <AnimatedDropDown menuItems={thirdItems} label={t('header_comunity')} />                
         </nav>
@@ -65,7 +64,9 @@ export default function Header() {
         <div className={`fixed inset-0 bg-gray-100 dark:bg-neutral-950  z-30 pt-6 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
           <nav className="flex flex-col items-start gap-6 w-screen pt-28">
             <LargeLink to="/">Home</LargeLink>
-            
+            <Divider />        
+
+            <LargeLink to="/explanation">{t('how-it-works', 'How it works')}</LargeLink>        
             <Divider />        
             <LargeButton onClick={toggleProductScreen}>
               {t('header_product')}
