@@ -50,5 +50,16 @@
   "join_newsletter": "Receba nossa newsletter",
   "contact_info": "Informações de contato",
   "our_address": "Endereço",
-  "country": "Brasil"
+  "country": "Brasil",
+  "how_it_works_experiment_description1":"Writeopia can interact with many AI models throught Ollama. Consider those models as your little AI assistants, search for the one prefer or just click in the recomended ones.",
+  "install_ollama": "Instale o Ollama",
+  "how_it_works": "Como funciona",
+  "how_it_works_subtitle": "Writeopia é um editor em tempo real que permite que você use IA com total privacidade. Ele use o aplicativo Ollama para gerar resposta de IA diretamente em seu computador. Seus dados nunca deixam seu computador.",
+  "experiment_ai_models":"Experimente com modelos de IA",
+  "download_and_choose_ai": "Depois de baixar-los, você pode escolher qual usar.",
+  "experiment_ai_suggestion": "Não sabe qual escolher? Apenas clique em um dos recomendados e se divirta!",
+  "start_writing": "Comece a escrever!",
+  "start_writing_description1": "Depois do modelo ser configurado em seu computador, você pode fazer perguntas e receber ajuda na escrita. Apenas selecione o text e faça a pergunta clicando em \"Pergunta a IA\".",
+  "start_writing_description2": "O seu computador processa a IA, então seus dados nunca saem de sua máquina e você nunca atinge um limite de uso.",
+  "happy_writting": "Boa escrita!"
 }

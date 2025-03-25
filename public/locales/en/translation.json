@@ -50,5 +50,16 @@
   "join_newsletter": "Join our newsletter",
   "contact_info": "Contact Information",
   "our_address": "Our address",
-  "country": "Brazil"
+  "country": "Brazil",
+  "how_it_works_experiment_description1":"Writeopia can interact with many AI models throught Ollama. Consider those models as your little AI assistants, search for the one prefer or just click in the recomended ones.",
+  "install_ollama": "Install Ollama",
+  "how_it_works": "How is works",
+  "how_it_works_subtitle": "Writeopia is a real-time text editor that lets you interact with AI while ensuring complete privacy. It uses Ollama to generate AI responses directly on your device, so your data never leaves your computer.",
+  "experiment_ai_models":"Experiment with AI models",
+  "download_and_choose_ai": "Once you download them, you can choose and experiment.",
+  "experiment_ai_suggestion": "Don't know which one to choose? Just click in the recommended ones and have fun!",
+  "start_writing": "Start writing!",
+  "start_writing_description1": "After the model is configured in your machine, you can make questions and get help to write. Just select the question in the text and select \"Ask AI\".",
+  "start_writing_description2": "Your computer will run the AI for you, so your data never leaves your computer and you never reach a limit of usage.",
+  "happy_writting": "Happy writting!"
 }

@@ -54,7 +54,7 @@ export default function Header() {
         </Link>
         <nav className="ml-auto pr-10 hidden md:flex items-center">
           <HeaderLink to="/">Home</HeaderLink>
-          <HeaderLink to="/explanation">{t('how-it-works', 'How it works')}</HeaderLink>
+          <HeaderLink to="/explanation">{t('how_it_works', 'How it works')}</HeaderLink>
           <AnimatedDropDown menuItems={secondItems} label={t('header_product')} />
           <AnimatedDropDown menuItems={thirdItems} label={t('header_comunity')} />                
         </nav>
@@ -66,7 +66,7 @@ export default function Header() {
             <LargeLink to="/">Home</LargeLink>
             <Divider />        
 
-            <LargeLink to="/explanation">{t('how-it-works', 'How it works')}</LargeLink>        
+            <LargeLink to="/explanation">{t('how_it_works', 'How it works')}</LargeLink>        
             <Divider />        
             <LargeButton onClick={toggleProductScreen}>
               {t('header_product')}
