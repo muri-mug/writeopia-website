@@ -21,9 +21,21 @@ export default function DownloadPage() {
 
   const [state, handleSubmit] = useForm("meoazble");
 
+  const [emailSubmitted, setEmailSubmitted] = useState<boolean>(() => {
+    return localStorage.getItem("emailSubmitted") === "true";
+  });
+
   useEffect(() => {
     setPlatform(detectPlatform())
   }, [])
+
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    handleSubmit(event);
+    localStorage.setItem("emailSubmitted", "true");
+    setEmailSubmitted(true);
+  };
+
+  const formSent = emailSubmitted || state.succeeded
 
   return (
     <Suspense fallback="loading">
@@ -35,10 +47,10 @@ export default function DownloadPage() {
               {t("download_subtitle", "Have a great experience, without sharing your data.")}
             </p>
 
-            {state.succeeded ? (
+            {formSent ? (
               <MainDownloadButton platform={platform} />
             ) : (
-              <EmailToDownload handleSubmit={handleSubmit} state={state} />
+              <EmailToDownload handleSubmit={handleFormSubmit} state={state} />
             )}
             
           </div>
@@ -47,7 +59,7 @@ export default function DownloadPage() {
           <img src="/download_teaser_dark.png" alt="Screenshot of Writeopia" className="w-auto h-max-[600] object-cover object-cover lg:pl-20 pl-0 pt-10 lg:pt-0 hidden dark:block" />
         </div>
 
-        {state.succeeded ? (
+        {formSent ? (
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -327,18 +339,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
 function detectAppleSilicon(): boolean {
   const userAgent = window.navigator.userAgent.toLowerCase()
 
-  // This is a simplified check - in reality, detecting Apple Silicon from the browser
-  // is not 100% reliable as the user agent doesn't explicitly mention the chip architecture
-  // A more reliable approach would be to check for specific features or performance characteristics
-
-  // Check if it's a Mac
   if (userAgent.indexOf("mac") !== -1) {
-    // For this example, we'll use a simplified approach
-    // In a real app, you might want to use more sophisticated detection
-    // or just ask the user to select the right version
-
-    // Check if it's a newer Mac (released after Apple Silicon transition began)
-    // This is just an approximation
     const isBigSurOrNewer = /mac os x 10_16|mac os x 11|mac os x 12|mac os x 13|mac os x 14/.test(userAgent)
 
     return isBigSurOrNewer
@@ -349,14 +350,6 @@ function detectAppleSilicon(): boolean {
 
 function EmailToDownload({ handleSubmit, state }: EmailToDownloadProps) {
   const { t } = useTranslation();
-
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    await handleSubmit(event);
-    if (state.succeeded) {
-      localStorage.setItem("emailSubmitted", "true");
-      setEmailSubmitted(true);
-    }
-  };
 
   return (
     <div className="flex justify-center items-center">
