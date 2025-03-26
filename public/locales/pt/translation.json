@@ -48,6 +48,7 @@
   "privacy_principle5": "- Não guardamos informação pessoasl, a menos que seja necessários para o funcionamento da plataforma.",
   "wishlist_teaser": "Entre para a nossa newslatter and fique sabendo primeiro de nossas features mais recentes!",
   "join_newsletter": "Receba nossa newsletter",
+  "send": "Enviar",
   "contact_info": "Informações de contato",
   "our_address": "Endereço",
   "country": "Brasil",
@@ -64,5 +65,7 @@
   "happy_writting": "Boa escrita!",
   "install_ollama_description_1": "Ollama funciona diretamente em seu computador. Baixe em ",
   "install_ollama_description_2": " e inicie ele. Agora você pode usar inteligência artifical no Writeopia!",
-  "work_it_works_title": "Como o Writeopia funciona"
+  "work_it_works_title": "Como o Writeopia funciona",
+  "provide_email": "Insira seu email para baixar o Writeopia",
+  "deny_marketing": "Não enviaremos nenhum email de marketing"
 }

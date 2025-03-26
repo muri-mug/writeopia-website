@@ -5,7 +5,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { Download, Apple, ComputerIcon as Windows, LaptopIcon as Linux } from "lucide-react"
-import DefaultLink from "../components/ui/default-link"
 import { useForm, ValidationError } from '@formspree/react';
 
 type Platform = "windows" | "macos" | "linux"
@@ -43,7 +42,7 @@ export default function DownloadPage() {
         <div className="flex flex-col lg:flex-row items-center pb-10 px-8 md:px-24 lg:px-32">
           <div className="space-y-2">
             <h1 className="text-6xl font-bold pt-24">{t("download_title", "Download the latest version for")} {platform}</h1>
-            <p className="text-muted-foreground text-3xl pb-10">
+            <p className="text-muted-foreground text-3xl pb-4">
               {t("download_subtitle", "Have a great experience, without sharing your data.")}
             </p>
 
@@ -279,7 +278,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
   const { t } = useTranslation()
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pt-10">
       {platform === "macos" || platform === "linux" ? (
         <>
           {platform === "macos" && (
@@ -325,13 +324,6 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
           </a>
         </Button>
       )}
-
-      <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl pt-8">
-        {t('wishlist_teaser', 'Join Writeopia newsletter now to stay updated on its latest features!')}
-      </p>  
-      <div className="space-y-2 space-x-2 pt-3">         
-        <DefaultLink to='https://forms.gle/QFoewRrehmkXWuMo8'>{t('join_newsletter', 'Join our newsletter')}</DefaultLink>    
-      </div>
     </div>
   )
 }
@@ -352,27 +344,32 @@ function EmailToDownload({ handleSubmit, state }: EmailToDownloadProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="flex justify-center items-center">
-      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 items-center">
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          placeholder="Enter your email"
-          className="border px-3 py-2 rounded-md w-[350px]"
-        />
+    <div>
+      <p className="text-muted-foreground text-xl pb-2">{t("provide_email", "Provide your email to download Writeopia")}</p>
+      <p className="text-muted-foreground text-lg pb-10 font-bold">{t("deny_marketing", "We won't send you any marketing email")}</p>
+  
+      <div className="flex justify-center items-center">    
+        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 items-center">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            className="border px-3 py-2 rounded-md w-[350px]"
+          />
 
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
 
-        <button
-          type="submit"
-          disabled={state.submitting}
-          className="bg-black dark:bg-gray-700 text-white px-4 py-2 border border-black dark:border-gray-700 rounded-xl cursor-pointer text-base font-bold hover:bg-gray-600 hover:border-gray-600"
-        >
-          {t("join_newsletter", "Join our newsletter")}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="bg-black dark:bg-gray-700 text-white px-4 py-2 border border-black dark:border-gray-700 rounded-xl cursor-pointer text-base font-bold hover:bg-gray-600 hover:border-gray-600"
+          >
+            {t("download", "Download")}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
