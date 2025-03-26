@@ -6,12 +6,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 import { Button } from "../components/ui/button"
 import { Download, Apple, ComputerIcon as Windows, LaptopIcon as Linux } from "lucide-react"
 import DefaultLink from "../components/ui/default-link"
+import { useForm, ValidationError } from '@formspree/react';
 
 type Platform = "windows" | "macos" | "linux"
+
+type EmailToDownloadProps = {
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  state: { submitting: boolean; errors: any }; 
+};
 
 export default function DownloadPage() {
   const { t } = useTranslation()
   const [platform, setPlatform] = useState<Platform>("windows")
+
+  const [state, handleSubmit] = useForm("meoazble");
 
   useEffect(() => {
     setPlatform(detectPlatform())
@@ -27,24 +35,34 @@ export default function DownloadPage() {
               {t("download_subtitle", "Have a great experience, without sharing your data.")}
             </p>
 
-            <MainDownloadButton platform={platform}></MainDownloadButton>      
+            {state.succeeded ? (
+              <MainDownloadButton platform={platform} />
+            ) : (
+              <EmailToDownload handleSubmit={handleSubmit} state={state} />
+            )}
+            
           </div>
 
           <img src="/download_teaser_light.png" alt="Screenshot of Writeopia"  className="w-auto h-max-[600] object-cover object-cover lg:pl-20 pl-0 pt-10 lg:pt-0 dark:hidden" />
           <img src="/download_teaser_dark.png" alt="Screenshot of Writeopia" className="w-auto h-max-[600] object-cover object-cover lg:pl-20 pl-0 pt-10 lg:pt-0 hidden dark:block" />
         </div>
 
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {t("choose_platform", "Choose your platform and download the latest version of Writeopia")}
-            </p>
-          </div>
+        {state.succeeded ? (
+          <div className="container px-4 md:px-6 mx-auto">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                {t("choose_platform", "Choose your platform and download the latest version of Writeopia")}
+              </p>
+            </div>
 
-          <div className="mx-auto max-w-3xl mt-12">
-            <PlatformTabs platform={platform} />
+            <div className="mx-auto max-w-3xl mt-12">
+              <PlatformTabs platform={platform} />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div></div>
+        )}
+        
       </section>
     </Suspense>
   )
@@ -327,4 +345,41 @@ function detectAppleSilicon(): boolean {
   }
 
   return false
+}
+
+function EmailToDownload({ handleSubmit, state }: EmailToDownloadProps) {
+  const { t } = useTranslation();
+
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    await handleSubmit(event);
+    if (state.succeeded) {
+      localStorage.setItem("emailSubmitted", "true");
+      setEmailSubmitted(true);
+    }
+  };
+
+  return (
+    <div className="flex justify-center items-center">
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 items-center">
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+          className="border px-3 py-2 rounded-md w-[350px]"
+        />
+
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+        <button
+          type="submit"
+          disabled={state.submitting}
+          className="bg-black dark:bg-gray-700 text-white px-4 py-2 border border-black dark:border-gray-700 rounded-xl cursor-pointer text-base font-bold hover:bg-gray-600 hover:border-gray-600"
+        >
+          {t("join_newsletter", "Join our newsletter")}
+        </button>
+      </form>
+    </div>
+  );
 }
