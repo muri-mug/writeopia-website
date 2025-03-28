@@ -6,7 +6,6 @@ import { Instagram, Linkedin, Github } from 'lucide-react';
 import { faBluesky } from "@fortawesome/free-brands-svg-icons"; // Replace with the correct icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 export default function Footer() {
   const year = new Date().getFullYear();
   const { t } = useTranslation();
