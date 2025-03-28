@@ -16,20 +16,11 @@ export default function AddressSection() {
               <h3 className="font-semibold">{t('our_address', 'Our Address')}</h3>
             </div>
             <address className="not-italic text-muted-foreground">
-                      <a 
-                href="https://taipuscode.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-blue-500 hover:underline"
-              >
-                Taipus Code
-              </a>
+              Writeopia
               <br />
-              Rua Francisco Deslandes, 648, apto 1103                          
-              <br />
-              Belo Horizonte, MG 30310-530
-              <br />
-              {t('country', 'Brazil')}
+              Raoul Wallenbergplantsoen 12 Gouda - 2801 BB
+              <br />                            
+              {t('country', 'Netherlands')}
             </address>
           </div>          
           <div className="flex flex-col items-center gap-2">
@@ -40,12 +31,6 @@ export default function AddressSection() {
             <p className="text-muted-foreground">
               <a href="mailto:privacy@writeopia.com" className="hover:underline">
                 privacy@writeopia.io
-              </a>
-            </p>
-
-            <p className="text-muted-foreground">
-              <a href="mailto:leandro@taipuscode.com" className="hover:underline">
-                leandro@taipuscode.com
               </a>
             </p>
           </div>
