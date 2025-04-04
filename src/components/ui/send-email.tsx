@@ -4,7 +4,7 @@ import { useForm, ValidationError } from '@formspree/react';
 
 export default function NewsletterSignup() {
   const { t } = useTranslation();
-  const [state, handleSubmit] = useForm("meoazble");
+  const [state, handleSubmit] = useForm("xqapywng");
 
   if (state.succeeded) {
       return <p>Thanks for joining!</p>;
