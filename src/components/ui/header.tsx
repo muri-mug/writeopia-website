@@ -28,10 +28,10 @@ export default function Header() {
     setIsProductOpen(!isProductOpen);
   };
 
-  const [isComunityOpen, setIsComunityOpen] = useState(false);
+  const [isCommunityOpen, setIsCommunityOpen] = useState(false);
 
-  const toggleComunityScreen = () => {
-    setIsComunityOpen(!isComunityOpen);
+  const toggleCommunityScreen = () => {
+    setIsCommunityOpen(!isCommunityOpen);
   };
 
   const docs = i18next.t("header_documentation")
@@ -56,7 +56,7 @@ export default function Header() {
           <HeaderLink to="/">Home</HeaderLink>
           <HeaderLink to="/explanation">{t('how_it_works', 'How it works')}</HeaderLink>
           <AnimatedDropDown menuItems={secondItems} label={t('header_product')} />
-          <AnimatedDropDown menuItems={thirdItems} label={t('header_comunity')} />                
+          <AnimatedDropDown menuItems={thirdItems} label={t('header_community', 'Community')} />                
           <HeaderLink to="https://www.patreon.com/Writeopia">{t('support_us', 'Support us')}</HeaderLink>
         </nav>
         <div className={`z-40 ml-auto ${isOpen ? 'visible' : 'md:hidden'}  mr-6`}>
@@ -87,11 +87,11 @@ export default function Header() {
               ))}              
             </div>
             <Divider />        
-            <LargeButton onClick={toggleComunityScreen}>
-              {t('header_comunity')}            
+            <LargeButton onClick={toggleCommunityScreen}>
+              {t('header_community', 'Community')}            
               {
                 <motion.div
-                  animate={{ rotate: !isComunityOpen ? 0 : -180 }}
+                  animate={{ rotate: !isCommunityOpen ? 0 : -180 }}
                   transition={{ duration: 0.150 }}
                   className="ml-2 -mr-1 h-5 w-5 inline-flex items-center justify-center"
                 >
@@ -99,7 +99,7 @@ export default function Header() {
                 </motion.div>
               }
               </LargeButton>
-            <div className={`flex flex-col ${isComunityOpen ? 'visible' : 'hidden'}`}>
+            <div className={`flex flex-col ${isCommunityOpen ? 'visible' : 'hidden'}`}>
               {thirdItems.map((item) => (
                 <MediumLink to={item.href}>{item.label}</MediumLink>
               ))}              
