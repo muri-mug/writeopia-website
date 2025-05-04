@@ -5,6 +5,7 @@ import Privacy from './routes/privacy';
 import Download from "./routes/download"
 import ContactRoute from "./routes/contact"
 import HowWorksPage from "./routes/how-works"
+import DemoPt from "./routes/demo-pt"
 import NotFound from './components/ui/not-found'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/download" element={<Download />} />
           <Route path="/contact" element={<ContactRoute />} />     
+          <Route path="/demo-pt" element={<DemoPt />} />     
           <Route path="/explanation" element={<HowWorksPage />} />     
           <Route path="*" element={<NotFound />} />
         </Routes>
