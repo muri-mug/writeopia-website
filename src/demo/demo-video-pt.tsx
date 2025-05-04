@@ -9,7 +9,7 @@ export default function DemoVideoPt() {
 
   return (
       <div>    
-        <div className="relative w-full max-w-7xl mx-auto aspect-video px-4 object-cover">
+        <div className="relative w-full max-w-7xl mx-auto aspect-video px-4 object-cover py-4">
           <ReactPlayer playing={false} url="https://writeopia.io/videos/demo.mov" loop={true} muted={true} controls={true} width="100%" height="100%" />
         </div>        
       </div>
