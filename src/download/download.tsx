@@ -84,7 +84,7 @@ const detectPlatform = (): "windows" | "linux" | "macos" => {
     
     const platform = window.navigator.platform.toLowerCase();
     
-    if (platform.includes("win")) return "macos";
+    if (platform.includes("win")) return "windows";
     if (platform.includes("mac")) return "macos";
     if (platform.includes("linux")) return "linux";
     
