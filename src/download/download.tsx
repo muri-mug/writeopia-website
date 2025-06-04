@@ -134,11 +134,12 @@ function WindowsDownloads() {
         <CardDescription>{t("windows_download_description", "Download Writeopia for Windows")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <p>{t("coming_soon", "coming_soon")}</p>
-        {/* <DownloadButton
-          href="https://writeopia.io/apps-download/latest/Writeopia.msi"
-          label={t("download_windows_installer", "Download Windows Installer (.msi)")}          
-        /> */}
+        <p>{t("go_to_ms_store", "Microsoft Store")}</p>
+        <DownloadButton
+          href="https://apps.microsoft.com/detail/9NW5WL8NRM4H"
+          label={t("go_to_ms_store", "Go to Microsoft Store")}
+          buttonLabel={t("go_to_store", "Go to Store")}
+        />
       </CardContent>
     </Card>
   )
@@ -159,11 +160,13 @@ function MacOSDownloads() {
           href="https://writeopia.io/apps-download/latest/Writeopia.dmg"
           label={t("download_macos_apple_silicon", "Download for Apple Silicon")}          
           highlighted={isAppleSilicon}
+          buttonLabel="Download"
         />
         <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia-intel.dmg"
           label={t("download_macos_intel", "Download for Intel Mac")}          
           highlighted={!isAppleSilicon}
+          buttonLabel="Download"
         />
 
         <div className="h-2"/>
@@ -192,7 +195,8 @@ function LinuxDownloads() {
       <CardContent className="space-y-4">
         <DownloadButton
           href="https://writeopia.io/apps-download/latest/Writeopia.deb"
-          label={t("download_linux_deb", "Download .deb package (Ubuntu, Debian)")}          
+          label={t("download_linux_deb", "Download .deb package (Ubuntu, Debian)")}      
+          buttonLabel="Download"    
         />
 
         <div className="h-2"/>
@@ -229,10 +233,12 @@ function DownloadButton({
   href,
   label,  
   highlighted = false,
+  buttonLabel = "Download",
 }: {
   href: string
   label: string  
-  highlighted?: boolean
+  highlighted?: boolean,
+  buttonLabel: string
 }) {
   return (
     <div
@@ -245,7 +251,7 @@ function DownloadButton({
         <Button asChild className="rounded-xl">
           <a href={href} className="flex items-center gap-2">
             <Download className="h-4 w-4" />
-            Download
+            {buttonLabel}
           </a>
         </Button>
       </div>
@@ -297,7 +303,7 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
                   <Download className="h-4 w-4" />
                   {t("download_macos_intel", "Download for Intel Mac")}
                 </a>
-              </Button>
+              </Button>                            
             </>
           )}
 
@@ -318,10 +324,10 @@ const MainDownloadButton: React.FC<DownloadButtonProps> = ({ platform }) => {
         </>
       ) : (
         <Button asChild className="rounded-xl">
-          <a href={getWriteopiaFile(platform)} className="flex items-center gap-2">
+          <a href="https://apps.microsoft.com/detail/9NW5WL8NRM4H" className="flex items-center gap-2">
             <Download className="h-4 w-4" />
-            {t("download_for", "Download for")} {platform.charAt(0).toUpperCase() + platform.slice(1)}
-          </a>
+            {t("go_to_ms_store", "Go to Windows Store")}
+          </a>  
         </Button>
       )}
     </div>
