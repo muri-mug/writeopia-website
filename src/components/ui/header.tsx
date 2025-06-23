@@ -45,6 +45,9 @@ export default function Header() {
     { label: t('contact_title', 'Contact Us'), href: '/contact' },
     { label: 'Github', href: 'https://github.com/leandroBorgesFerreira/Writeopia' },
     { label: 'Linkedin', href: 'https://www.linkedin.com/company/writeopia/' },
+    { label: 'Discord', href: 'https://discord.gg/GDm9Nth2rx' },
+    { label: 'Instagram', href: 'https://www.instagram.com/writeopia.io' },
+    { label: 'Bluesky', href: 'https://bsky.app/profile/writeopia.bsky.social' },
   ];
 
   return (
