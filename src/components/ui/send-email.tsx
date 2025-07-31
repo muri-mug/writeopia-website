@@ -18,7 +18,7 @@ export default function NewsletterSignup() {
           type="email" 
           name="email"          
           placeholder="Enter your email"
-          className="border px-3 py-2 rounded-md w-[350px]"
+          className="border px-3 py-2 rounded-md w-[350px] dark:border-black bg-white dark:bg-gray-700"
         />
         
         <ValidationError 
