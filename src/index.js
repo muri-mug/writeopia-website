@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./i18n";
+import { ThemeProvider }  from './ThemeContext'
 
 function ColorTheme() {
   return (
     <main className="bg-gray-100 dark:bg-neutral-950 min-h-screen flex transition-colors duration-200 text-neutral-950 dark:text-white">
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </main>
   )
 }

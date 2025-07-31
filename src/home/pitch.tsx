@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 
 export default function Pitch() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen space-y-12 pt-24 p-6">    
+    <section className="flex flex-col items-center justify-center min-h-screen space-y-12 pt-24 p-6">    
       <DataChoice />
       <AiChoice />
       <OpenFormat />
       <Design />
-    </div>
+    </section>
   );
 }
 

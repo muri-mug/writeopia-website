@@ -73,7 +73,6 @@ export default function DownloadPage() {
         ) : (
           <div></div>
         )}
-        
       </section>
     </Suspense>
   )

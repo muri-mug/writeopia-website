@@ -12,7 +12,7 @@ export default function ContactPage() {
   
   return (
     <Suspense>
-      <div className="flex min-h-screen w-full py-12 px-6">
+      <section className="flex min-h-screen w-full py-12 px-6">
         <div className="mx-auto max-w-md space-y-6 text-center">
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
             <Mail className="h-10 w-10 text-primary" />
@@ -40,7 +40,7 @@ export default function ContactPage() {
             {t("contact_time_reply", "We typically respond to all inquiries within 24-48 hours during business days.")}
           </p>
         </div>
-      </div>
+      </section>
     </Suspense>
   )
 }

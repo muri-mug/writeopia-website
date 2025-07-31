@@ -5,10 +5,10 @@ import DemoVideoPt from "../demo/demo-video-pt";
 
 export default function DemoPt() {
     return (
-        <div>
+        <section>
             <Header />
             <DemoVideoPt />
             <Footer />
-        </div>
+        </section>
     );
 }
