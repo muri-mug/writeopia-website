@@ -7,6 +7,7 @@ import ContactRoute from "./routes/contact"
 import HowWorksPage from "./routes/how-works"
 import DemoPt from "./routes/demo-pt"
 import NotFound from './components/ui/not-found'
+import EnableUserPage from './routes/enable-user';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/demo-pt" element={<DemoPt />} />     
           <Route path="/explanation" element={<HowWorksPage />} />     
           <Route path="*" element={<NotFound />} />
+          <Route path="/admin/enable-user" element={<EnableUserPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,7 +11,7 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <div className="flex justify-center items-center">  
+    <div className="flex flex-col items-center justify-center">  
       <form onSubmit={handleSubmit} className="space-x-2 space-y-2 md:space-y-0 flex flex-col md:flex-row items-center">
         <input
           id="email"
