@@ -64,7 +64,6 @@ export default function Header() {
         <HeaderLink to="/explanation">{t('how_it_works', 'How it works')}</HeaderLink>
         <AnimatedDropDown menuItems={secondItems} label={t('header_product')} />
         <AnimatedDropDown menuItems={thirdItems} label={t('header_community', 'Community')} />                
-        <HeaderLink to="https://www.patreon.com/Writeopia">{t('support_us', 'Support us')}</HeaderLink>
 
         <button
           onClick={() => (isDarkTheme ? setLightTheme() : setDarkTheme())}
@@ -118,9 +117,6 @@ export default function Header() {
               <MediumLink to={item.href}>{item.label}</MediumLink>
             ))}              
           </div>
-          <Divider />  
-          <LargeLink to="https://www.patreon.com/Writeopia">{t('support_us', 'Support us')}</LargeLink>
-          <Divider />  
         </nav>
       </div>      
     </header>

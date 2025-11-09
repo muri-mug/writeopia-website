@@ -40,7 +40,7 @@ export default function AnimatedDropDown({ menuItems, label = "Options" }) {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block px-4 py-2 pt-5 pb-5 m-1.5 text-sm text-gray-700 rounded-lg dark:text-white font-bold hover:bg-gray-100 hover:text-gray-900"
+                  className="block px-4 py-2 pt-5 pb-5 m-1.5 text-sm text-gray-700 rounded-lg dark:text-white font-bold hover:bg-gray-200  dark:hover:bg-gray-700 hover:text-gray-900"
                   role="menuitem"
                 >
                   {item.label}
