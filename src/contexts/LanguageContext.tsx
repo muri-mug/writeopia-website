@@ -1,0 +1,404 @@
+import { createContext, useContext, useState, ReactNode } from "react";
+
+export type Language = "pt" | "en";
+
+interface LanguageContextType {
+  language: Language;
+  toggleLanguage: () => void;
+  t: (key: string) => string;
+}
+
+const translations: Record<Language, Record<string, string>> = {
+  pt: {
+    // Header
+    "nav.features": "Como funciona",
+    "nav.security": "Privacidade",
+    "nav.pricing": "Planos",
+    "nav.docs": "Docs",
+    "nav.login": "Entrar",
+    "nav.cta": "Seja Beta Tester",
+
+    // Developers
+    "dev.label": "Desenvolvedores",
+    "dev.title": "Construa com o ",
+    "dev.titleHighlight": "Writeopia SDK",
+    "dev.subtitle": "Um SDK em Kotlin para adicionar editores de texto ricos nas suas aplicações. Componentes modulares para backend e mobile.",
+    "dev.cta": "Ver Documentação",
+    "dev.f1.title": "Kotlin Multiplatform",
+    "dev.f1.desc": "Escreva uma vez, rode em Android, iOS, Desktop e Web com Kotlin Multiplatform.",
+    "dev.f2.title": "Modular e extensível",
+    "dev.f2.desc": "Cada componente é independente — headers, listas, imagens. Use só o que precisa.",
+    "dev.f3.title": "Open Source",
+    "dev.f3.desc": "Código aberto no GitHub. Contribua, reporte bugs e ajude a evoluir o SDK.",
+
+    // Hero
+    "hero.badge": "Beta aberto — Seja um dos primeiros!",
+    "hero.title": "Escreva como se ninguém estivesse vendo. ",
+    "hero.titleHighlight": "Porque não estão.",
+    "hero.subtitle": "Escreva suas ideias. Mantenha seus documentos seguros e privados. Decida para onde seus dados vão.",
+    "hero.cta": "Baixar Writeopia",
+    "hero.demo": "Seja Beta Tester",
+    "hero.trust": "Disponível em:",
+
+    // Features
+    "features.label": "Como funciona",
+    "features.title": "Privacidade e liberdade ",
+    "features.titleHighlight": "em cada detalhe",
+    "features.subtitle": "Uma plataforma de escrita que coloca você no controle total dos seus dados e da sua experiência.",
+    "features.1.title": "Escolha onde seus dados ficam",
+    "features.1.desc": "Suas anotações ficam com você. Armazene localmente no seu dispositivo para acesso offline completo, ou sincronize com o serviço de nuvem da sua escolha.",
+    "features.2.title": "Escolha seu agente de IA",
+    "features.2.desc": "Escolha entre uma variedade de agentes de IA open-source para suas necessidades. Execute-os localmente para máxima privacidade.",
+    "features.3.title": "Sem lock-in",
+    "features.3.desc": "Usamos formatos de arquivo públicos e facilitamos a exportação dos seus dados. Sem aprisionamento a nenhum sistema ou serviço.",
+    "features.4.title": "Design elegante",
+    "features.4.desc": "Nosso editor de texto é rápido, responsivo e projetado para acompanhar você. Interface moderna, funcional e visualmente atraente.",
+    "features.5.title": "Funciona em qualquer lugar",
+    "features.5.desc": "Windows, Linux e Mac. A mesma experiência incrível em todas as plataformas.",
+    "features.6.title": "Privacidade de verdade",
+    "features.6.desc": "Seus documentos são seus. Sem rastreamento, sem anúncios, sem venda de dados. Privacidade como princípio fundamental.",
+
+    // Security
+    "security.label": "Privacidade",
+    "security.title": "Seus dados, ",
+    "security.titleHighlight": "suas regras",
+    "security.subtitle": "O Writeopia foi construído com privacidade como princípio fundamental. Você decide onde seus dados são armazenados e quem tem acesso a eles.",
+    "security.f1": "Armazenamento local ou nuvem — você escolhe",
+    "security.f2": "IA open-source executada localmente",
+    "security.f3": "Formatos de arquivo abertos e exportáveis",
+    "security.f4": "Sem rastreamento ou coleta de dados",
+    "security.f5": "Criptografia de ponta a ponta",
+    "security.f6": "Código aberto e auditável",
+    "security.encryption": "Criptografia",
+    "security.uptime": "Open Source",
+    "security.datacenters": "Plataformas",
+    "security.datacentersValue": "6 plataformas",
+    "security.certifications": "Formatos",
+
+    // Pricing
+    "pricing.label": "Planos Beta",
+    "pricing.title": "Participe do ",
+    "pricing.titleHighlight": "Beta do Writeopia",
+    "pricing.subtitle": "Estamos abrindo o beta! Seja um dos primeiros a experimentar o Writeopia e ajude a moldar o futuro da escrita privada.",
+    "pricing.popular": "Beta Aberto",
+    "pricing.individual": "Individual",
+    "pricing.individualDesc": "Para escritores e profissionais",
+    "pricing.team": "Enterprise",
+    "pricing.teamDesc": "Para equipes e organizações",
+    "pricing.enterprise": "Comunidade",
+    "pricing.enterpriseDesc": "Contribua com o projeto open-source",
+    "pricing.custom": "Grátis",
+    "pricing.ctaStart": "Seja um Beta Tester",
+    "pricing.ctaSales": "Seja um Beta Tester",
+    "pricing.i.f1": "Acesso completo ao editor",
+    "pricing.i.f2": "Armazenamento local ilimitado",
+    "pricing.i.f3": "Integração com IA local",
+    "pricing.i.f4": "Exportação em formatos abertos",
+    "pricing.i.f5": "Todas as plataformas",
+    "pricing.i.f6": "Suporte da comunidade",
+    "pricing.t.f1": "Tudo do Individual",
+    "pricing.t.f2": "Sincronização entre dispositivos",
+    "pricing.t.f3": "Espaços de trabalho compartilhados",
+    "pricing.t.f4": "Gestão centralizada de equipe",
+    "pricing.t.f5": "Políticas de privacidade customizadas",
+    "pricing.t.f6": "Suporte dedicado",
+    "pricing.t.f7": "Integração com infraestrutura própria",
+    "pricing.t.f8": "Onboarding personalizado",
+    "pricing.e.f1": "Código-fonte aberto",
+    "pricing.e.f2": "Contribua com features",
+    "pricing.e.f3": "Reporte bugs e melhorias",
+    "pricing.e.f4": "Acesso ao roadmap",
+    "pricing.e.f5": "Canal direto com os devs",
+    "pricing.e.f6": "Builds exclusivos para contributors",
+    "pricing.e.f7": "Créditos na aplicação",
+    "pricing.e.f8": "Comunidade Discord",
+
+    // CTA
+    "cta.badge": "Beta aberto — vagas limitadas",
+    "cta.title": "Seja um dos primeiros a ",
+    "cta.titleHighlight": "experimentar o Writeopia",
+    "cta.subtitle": "Baixe agora ou inscreva-se para receber novidades e acesso antecipado a novas funcionalidades.",
+    "cta.start": "Baixar Agora",
+    "cta.demo": "Receber Novidades",
+
+    // FAQ
+    "faq.label": "FAQ",
+    "faq.title": "Perguntas ",
+    "faq.titleHighlight": "frequentes",
+    "faq.subtitle": "Tire suas dúvidas sobre o Writeopia e saiba como participar do beta.",
+    "faq.1.q": "O que é o Writeopia?",
+    "faq.1.a": "O Writeopia é um editor de texto focado em privacidade. Você escreve suas ideias, mantém seus documentos seguros e decide para onde seus dados vão — armazenando localmente ou na nuvem da sua escolha.",
+    "faq.2.q": "Meus dados ficam onde?",
+    "faq.2.a": "Você decide! Pode armazenar localmente no seu dispositivo para acesso offline completo, ou sincronizar com um serviço de nuvem da sua escolha. Seus dados nunca saem do seu controle.",
+    "faq.3.q": "Como funciona a IA no Writeopia?",
+    "faq.3.a": "Você pode escolher entre agentes de IA open-source e executá-los localmente na sua máquina, garantindo total privacidade. Não dependemos de serviços de IA proprietários.",
+    "faq.4.q": "Posso exportar meus dados?",
+    "faq.4.a": "Sim! Usamos formatos de arquivo públicos e facilitamos a exportação. Sem lock-in a nenhum sistema ou serviço. Seus documentos são seus para sempre.",
+    "faq.5.q": "Em quais plataformas funciona?",
+    "faq.5.a": "O Writeopia está disponível para Windows, Linux e Mac. Você tem a mesma experiência em todas as plataformas.",
+    "faq.6.q": "O que é o programa beta?",
+    "faq.6.a": "Estamos abrindo o Writeopia para beta testers! Individuais podem baixar gratuitamente. Empresas podem solicitar um convite para acesso enterprise com recursos exclusivos e suporte dedicado.",
+
+    // Testimonials
+    "testimonials.label": "Comunidade",
+    "testimonials.title": "O que nossos alpha testers ",
+    "testimonials.titleHighlight": "estão dizendo",
+    "testimonials.subtitle": "Feedback de quem já está usando o Writeopia desde a fase alpha.",
+    "testimonials.1.quote": "Finalmente um editor que não quer meus dados. O Writeopia é exatamente o que eu procurava para escrever com tranquilidade.",
+    "testimonials.1.name": "Alpha Tester",
+    "testimonials.1.role": "Escritor",
+    "testimonials.2.quote": "A integração com IA local é genial. Consigo usar modelos open-source sem enviar nada para a nuvem.",
+    "testimonials.2.name": "Alpha Tester",
+    "testimonials.2.role": "Desenvolvedor",
+    "testimonials.3.quote": "O design é lindo e a experiência é super fluida. Uso no Mac e no Windows sem perder nada.",
+    "testimonials.3.name": "Alpha Tester",
+    "testimonials.3.role": "Designer",
+    "testimonials.4.quote": "Sem lock-in de verdade. Exportei todos meus documentos em markdown sem nenhum problema.",
+    "testimonials.4.name": "Alpha Tester",
+    "testimonials.4.role": "Pesquisador",
+    "testimonials.5.quote": "A melhor experiência de escrita que já tive em um app multiplataforma. Parabéns ao time!",
+    "testimonials.5.name": "Alpha Tester",
+    "testimonials.5.role": "Jornalista",
+    "testimonials.6.quote": "Usar o Writeopia me faz sentir que minha privacidade é respeitada. Recomendo para qualquer pessoa.",
+    "testimonials.6.name": "Alpha Tester",
+    "testimonials.6.role": "Professor",
+
+    // Footer
+    "footer.desc": "Security to create, simplicity to find.",
+    "footer.product": "Produto",
+    "footer.company": "Comunidade",
+    "footer.resources": "Recursos",
+    "footer.legal": "Legal",
+    "footer.copyright": "© 2026 Writeopia. Todos os direitos reservados.",
+    "footer.madeWith": "Feito com 💜 para times, escritores livres, pesquisadores e desenvolvedores.",
+    "footer.p.features": "Como funciona",
+    "footer.p.security": "Privacidade",
+    "footer.p.pricing": "Planos Beta",
+    "footer.p.integrations": "Plataformas",
+    "footer.p.api": "Open Source",
+    "footer.c.about": "Sobre",
+    "footer.c.blog": "Blog",
+    "footer.c.careers": "Contribuir",
+    "footer.c.partners": "Discord",
+    "footer.c.contact": "Contato",
+    "footer.r.docs": "Documentação",
+    "footer.r.help": "Central de Ajuda",
+    "footer.r.status": "Status",
+    "footer.r.changelog": "Changelog",
+    "footer.r.community": "Newsletter",
+    "footer.l.privacy": "Privacidade",
+    "footer.l.terms": "Termos",
+    "footer.l.cookies": "Cookies",
+    "footer.l.lgpd": "LGPD",
+  },
+  en: {
+    // Header
+    "nav.features": "How it works",
+    "nav.security": "Privacy",
+    "nav.pricing": "Plans",
+    "nav.docs": "Docs",
+    "nav.login": "Log In",
+    "nav.cta": "Become a Beta Tester",
+
+    // Developers
+    "dev.label": "Developers",
+    "dev.title": "Build with the ",
+    "dev.titleHighlight": "Writeopia SDK",
+    "dev.subtitle": "A Kotlin SDK to add rich text editors to your apps. Modular components for backend and mobile.",
+    "dev.cta": "View Documentation",
+    "dev.f1.title": "Kotlin Multiplatform",
+    "dev.f1.desc": "Write once, run on Android, iOS, Desktop, and Web with Kotlin Multiplatform.",
+    "dev.f2.title": "Modular & extensible",
+    "dev.f2.desc": "Each component is independent — headers, lists, images. Use only what you need.",
+    "dev.f3.title": "Open Source",
+    "dev.f3.desc": "Open source on GitHub. Contribute, report bugs, and help evolve the SDK.",
+
+    // Hero
+    "hero.badge": "Open Beta — Be one of the first!",
+    "hero.title": "Write like nobody's watching. ",
+    "hero.titleHighlight": "Because they aren't.",
+    "hero.subtitle": "Write your ideas. Keep your docs safe and private. Decide where your data goes.",
+    "hero.cta": "Download Writeopia",
+    "hero.demo": "Become a Beta Tester",
+    "hero.trust": "Available on:",
+
+    // Features
+    "features.label": "How it works",
+    "features.title": "Privacy and freedom ",
+    "features.titleHighlight": "in every detail",
+    "features.subtitle": "A writing platform that puts you in complete control of your data and your experience.",
+    "features.1.title": "Choose where your data goes",
+    "features.1.desc": "Your notes stay with you. Store them locally on your device for complete offline access, or sync with a cloud service of your choice.",
+    "features.2.title": "Choose your AI agent",
+    "features.2.desc": "Choose from a variety of open-source AI agents to suit your needs. Run them locally for maximum privacy.",
+    "features.3.title": "No lock-in",
+    "features.3.desc": "We use public file formats and make it easy to export your data. No lock-in to any system or service.",
+    "features.4.title": "Beautifully designed",
+    "features.4.desc": "Our text editor is fast, responsive, and designed to keep up with you. A sleek, modern interface that's both functional and visually appealing.",
+    "features.5.title": "Run anywhere, anytime",
+    "features.5.desc": "Windows, Linux, and Mac. The same great experience across all platforms.",
+    "features.6.title": "True privacy",
+    "features.6.desc": "Your documents are yours. No tracking, no ads, no data selling. Privacy as a fundamental principle.",
+
+    // Security
+    "security.label": "Privacy",
+    "security.title": "Your data, ",
+    "security.titleHighlight": "your rules",
+    "security.subtitle": "Writeopia was built with privacy as a core principle. You decide where your data is stored and who has access to it.",
+    "security.f1": "Local or cloud storage — you choose",
+    "security.f2": "Open-source AI running locally",
+    "security.f3": "Open and exportable file formats",
+    "security.f4": "No tracking or data collection",
+    "security.f5": "End-to-end encryption",
+    "security.f6": "Open source and auditable",
+    "security.encryption": "Encryption",
+    "security.uptime": "Open Source",
+    "security.datacenters": "Platforms",
+    "security.datacentersValue": "6 platforms",
+    "security.certifications": "Formats",
+
+    // Pricing
+    "pricing.label": "Beta Plans",
+    "pricing.title": "Join the ",
+    "pricing.titleHighlight": "Writeopia Beta",
+    "pricing.subtitle": "We're opening the beta! Be one of the first to try Writeopia and help shape the future of private writing.",
+    "pricing.popular": "Open Beta",
+    "pricing.individual": "Individual",
+    "pricing.individualDesc": "For writers and professionals",
+    "pricing.team": "Enterprise",
+    "pricing.teamDesc": "For teams and organizations",
+    "pricing.enterprise": "Community",
+    "pricing.enterpriseDesc": "Contribute to the open-source project",
+    "pricing.custom": "Free",
+    "pricing.ctaStart": "Become a Beta Tester",
+    "pricing.ctaSales": "Become a Beta Tester",
+    "pricing.i.f1": "Full editor access",
+    "pricing.i.f2": "Unlimited local storage",
+    "pricing.i.f3": "Local AI integration",
+    "pricing.i.f4": "Export in open formats",
+    "pricing.i.f5": "All platforms",
+    "pricing.i.f6": "Community support",
+    "pricing.t.f1": "Everything in Individual",
+    "pricing.t.f2": "Cross-device sync",
+    "pricing.t.f3": "Shared workspaces",
+    "pricing.t.f4": "Centralized team management",
+    "pricing.t.f5": "Custom privacy policies",
+    "pricing.t.f6": "Dedicated support",
+    "pricing.t.f7": "Self-hosted infrastructure",
+    "pricing.t.f8": "Personalized onboarding",
+    "pricing.e.f1": "Open source code",
+    "pricing.e.f2": "Contribute features",
+    "pricing.e.f3": "Report bugs and improvements",
+    "pricing.e.f4": "Roadmap access",
+    "pricing.e.f5": "Direct channel with devs",
+    "pricing.e.f6": "Exclusive contributor builds",
+    "pricing.e.f7": "App credits",
+    "pricing.e.f8": "Discord community",
+
+    // CTA
+    "cta.badge": "Open beta — limited spots",
+    "cta.title": "Be one of the first to ",
+    "cta.titleHighlight": "try Writeopia",
+    "cta.subtitle": "Download now or sign up to receive updates and early access to new features.",
+    "cta.start": "Download Now",
+    "cta.demo": "Get Updates",
+
+    // FAQ
+    "faq.label": "FAQ",
+    "faq.title": "Frequently asked ",
+    "faq.titleHighlight": "questions",
+    "faq.subtitle": "Get answers about Writeopia and learn how to join the beta.",
+    "faq.1.q": "What is Writeopia?",
+    "faq.1.a": "Writeopia is a privacy-focused text editor. You write your ideas, keep your documents safe, and decide where your data goes — storing locally or in the cloud of your choice.",
+    "faq.2.q": "Where is my data stored?",
+    "faq.2.a": "You decide! You can store locally on your device for complete offline access, or sync with a cloud service of your choice. Your data never leaves your control.",
+    "faq.3.q": "How does AI work in Writeopia?",
+    "faq.3.a": "You can choose from open-source AI agents and run them locally on your machine, ensuring total privacy. We don't depend on proprietary AI services.",
+    "faq.4.q": "Can I export my data?",
+    "faq.4.a": "Yes! We use public file formats and make exporting easy. No lock-in to any system or service. Your documents are yours forever.",
+    "faq.5.q": "Which platforms are supported?",
+    "faq.5.a": "Writeopia is available for Windows, Linux, and Mac. You get the same experience across all platforms.",
+    "faq.6.q": "What is the beta program?",
+    "faq.6.a": "We're opening Writeopia to beta testers! Individuals can download for free. Companies can request an invite for enterprise access with exclusive features and dedicated support.",
+
+    // Testimonials
+    "testimonials.label": "Community",
+    "testimonials.title": "What our alpha testers ",
+    "testimonials.titleHighlight": "are saying",
+    "testimonials.subtitle": "Feedback from those who have been using Writeopia since the alpha phase.",
+    "testimonials.1.quote": "Finally an editor that doesn't want my data. Writeopia is exactly what I was looking for to write in peace.",
+    "testimonials.1.name": "Alpha Tester",
+    "testimonials.1.role": "Writer",
+    "testimonials.2.quote": "The local AI integration is genius. I can use open-source models without sending anything to the cloud.",
+    "testimonials.2.name": "Alpha Tester",
+    "testimonials.2.role": "Developer",
+    "testimonials.3.quote": "The design is beautiful and the experience is super smooth. I use it on Mac and Windows without missing anything.",
+    "testimonials.3.name": "Alpha Tester",
+    "testimonials.3.role": "Designer",
+    "testimonials.4.quote": "True no lock-in. I exported all my documents in markdown without any issues.",
+    "testimonials.4.name": "Alpha Tester",
+    "testimonials.4.role": "Researcher",
+    "testimonials.5.quote": "The best writing experience I've ever had in a cross-platform app. Congrats to the team!",
+    "testimonials.5.name": "Alpha Tester",
+    "testimonials.5.role": "Journalist",
+    "testimonials.6.quote": "Using Writeopia makes me feel like my privacy is respected. I recommend it to everyone.",
+    "testimonials.6.name": "Alpha Tester",
+    "testimonials.6.role": "Professor",
+
+    // Footer
+    "footer.desc": "Security to create, simplicity to find.",
+    "footer.product": "Product",
+    "footer.company": "Community",
+    "footer.resources": "Resources",
+    "footer.legal": "Legal",
+    "footer.copyright": "© 2026 Writeopia. All rights reserved.",
+    "footer.madeWith": "Made with 💜 for teams, free writers, researchers and developers.",
+    "footer.p.features": "How it works",
+    "footer.p.security": "Privacy",
+    "footer.p.pricing": "Beta Plans",
+    "footer.p.integrations": "Platforms",
+    "footer.p.api": "Open Source",
+    "footer.c.about": "About",
+    "footer.c.blog": "Blog",
+    "footer.c.careers": "Contribute",
+    "footer.c.partners": "Discord",
+    "footer.c.contact": "Contact",
+    "footer.r.docs": "Documentation",
+    "footer.r.help": "Help Center",
+    "footer.r.status": "Status",
+    "footer.r.changelog": "Changelog",
+    "footer.r.community": "Newsletter",
+    "footer.l.privacy": "Privacy",
+    "footer.l.terms": "Terms",
+    "footer.l.cookies": "Cookies",
+    "footer.l.lgpd": "LGPD",
+  },
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>("en");
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
+  };
+
+  const t = (key: string): string => {
+    return translations[language][key] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
+};

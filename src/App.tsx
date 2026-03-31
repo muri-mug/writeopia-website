@@ -1,31 +1,31 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Root from './routes/root'
-import Privacy from './routes/privacy';
-import Download from "./routes/download"
-import ContactRoute from "./routes/contact"
-import HowWorksPage from "./routes/how-works"
-import DemoPt from "./routes/demo-pt"
-import NotFound from './components/ui/not-found'
-import EnableUserPage from './routes/enable-user';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import Download from "./pages/Download";
+import Docs from "./pages/Docs";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  return (
-    <div className='App'>
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Root />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/" element={<Index />} />
           <Route path="/download" element={<Download />} />
-          <Route path="/contact" element={<ContactRoute />} />     
-          <Route path="/demo-pt" element={<DemoPt />} />     
-          <Route path="/explanation" element={<HowWorksPage />} />     
+          <Route path="/docs" element={<Docs />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-          <Route path="/admin/enable-user" element={<EnableUserPage />} />
         </Routes>
       </BrowserRouter>
-    </div>
-  );
-}
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
