@@ -1,10 +1,10 @@
 describe('Home Page tests', () => {
   it('Displays the initial information', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
 
     cy.contains("Because they aren't.")
     cy.contains('Write your ideas. Keep your docs safe and private. Decide where your data goes.')
-    cy.contains('Download Writeopia')
+    cy.contains('Become a Beta Tester')
     cy.contains('Available on:')
     cy.contains('Windows')
     cy.contains('Linux')
@@ -12,7 +12,7 @@ describe('Home Page tests', () => {
   })
 
   it('Displays navigation links', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
 
     cy.contains('How it works')
     cy.contains('Privacy')
@@ -21,9 +21,9 @@ describe('Home Page tests', () => {
   })
 
   it('It should be possible to navigate to download page', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
 
-    cy.contains('Download Writeopia').click()
+    cy.contains('Become a Beta Tester').click()
 
     cy.url().should('include', '/download')
   })
