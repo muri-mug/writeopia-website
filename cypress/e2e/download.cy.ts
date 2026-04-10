@@ -9,7 +9,7 @@ describe('Download Page', () => {
 
   it('shows platform download sections', () => {
     cy.contains('Windows').should('exist');
-    cy.contains('macOS').should('exist');
+    cy.contains('Mac').should('exist');
     cy.contains('Linux').should('exist');
   });
 
