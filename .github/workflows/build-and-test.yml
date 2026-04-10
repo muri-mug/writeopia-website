@@ -29,3 +29,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           command: npm run e2e:ci
+          start: npx vite preview --port 3000
+          wait-on: 'http://localhost:3000'
