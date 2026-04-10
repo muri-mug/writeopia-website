@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "e2e:ci": "cypress run"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
