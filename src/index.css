@@ -46,6 +46,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --background: 0 0% 22%;
     --foreground: 0 0% 100%;
 
@@ -55,7 +56,7 @@
     --popover: 0 0% 18%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 303 100% 67%;
+    --primary: 303 100% 50%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 276 51% 38%;
@@ -72,10 +73,10 @@
 
     --border: 0 0% 32%;
     --input: 0 0% 32%;
-    --ring: 303 100% 67%;
+    --ring: 303 100% 50%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(303 100% 67%) 0%, hsl(276 51% 38%) 100%);
-    --gradient-glow: linear-gradient(135deg, hsl(303 100% 67% / 0.3) 0%, hsl(276 51% 38% / 0.3) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(303 100% 55%) 0%, hsl(276 51% 38%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(303 100% 55% / 0.3) 0%, hsl(276 51% 38% / 0.3) 100%);
     --gradient-surface: linear-gradient(180deg, hsl(0 0% 24%) 0%, hsl(0 0% 18%) 100%);
 
     --shadow-glow: 0 0 40px hsl(303 100% 67% / 0.25);
@@ -99,6 +100,15 @@
     font-family: Inter, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Fix browser autofill overriding input background in dark mode */
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px hsl(0 0% 18%) inset;
+    -webkit-text-fill-color: hsl(0 0% 100%);
+    transition: background-color 5000s ease-in-out 0s;
   }
 }
 
