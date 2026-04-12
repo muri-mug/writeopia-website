@@ -1,0 +1,109 @@
+name: Deploy to GCP Cloud Storage
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-gcp-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  GCP_PROJECT_ID: writeopia
+  GCS_BUCKET: writeopia-landing-page
+  CDN_URL_MAP: http-lb-writeopia2
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run unit tests
+        run: npm test
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-22.04
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  deploy:
+    name: Deploy to GCP
+    runs-on: ubuntu-22.04
+    needs: build
+    environment:
+      name: production
+      url: https://writeopia.io
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
+          service_account: github-actions-deployer@writeopia.iam.gserviceaccount.com
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.GCP_PROJECT_ID }}
+
+      - name: Upload to Cloud Storage
+        run: |
+          gsutil -m rsync -r -d dist/ gs://${{ env.GCS_BUCKET }}/
+
+      - name: Set cache headers for static assets
+        run: |
+          # Set long cache for hashed assets (JS, CSS with hash in filename)
+          gsutil -m setmeta -h "Cache-Control:public, max-age=31536000, immutable" \
+            "gs://${{ env.GCS_BUCKET }}/assets/**"
+
+          # Set short cache for HTML files
+          gsutil -m setmeta -h "Cache-Control:public, max-age=300, must-revalidate" \
+            "gs://${{ env.GCS_BUCKET }}/*.html"
+
+      - name: Invalidate CDN cache
+        run: |
+          gcloud compute url-maps invalidate-cdn-cache ${{ env.CDN_URL_MAP }} \
+            --path "/*" \
+            --async

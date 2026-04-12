@@ -1,3 +1,3 @@
-rm -rf build
+rm -rf dist
 npm run build
-gsutil -m cp -r build/* gs://writeopia-landing-page
+gsutil -m cp -r dist/* gs://writeopia-landing-page
