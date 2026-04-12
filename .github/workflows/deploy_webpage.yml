@@ -40,7 +40,7 @@ jobs:
         working-directory: ./
         run: npm run build
         env:
-          VITE_BASE_PATH: /WriteopiaLandingPage/
+          VITE_BASE_PATH: /writeopia-website/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
