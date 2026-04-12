@@ -1,75 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .not_found_container {
-      text-align: center;
-      margin-top: 8vh;
-    }
-    .not_found_message {
-      font-size: 1.5rem;
-      margin-top: 16px;
-    }
-    .not_found_image {
-      max-width: 400px;
-      height: auto;
-      margin-top: 16px;
-    }
-    .not_found_button {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: bold;
-      color: white;
-      background-color: #6b46c1;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .not_found_button:hover {
-      background-color: #805ad5;
-    }
-
-    body {
-      background-color: #f7fafc;
-      color: #2d3748;
-    }
-
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #1a202c;
-        color: #f7fafc;
-      }
-
-      .button {
-        background-color: #5a3e97;
-      }
-
-      .button:hover {
-        background-color: #7a4fbb;
-      }
-    }
-  </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8">
+  <title>Writeopia</title>
+  <script type="text/javascript">
+    // SPA redirect for GitHub Pages
+    // https://github.com/rafgraph/spa-github-pages
+    var pathSegmentsToKeep = 1;
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
 </head>
 <body>
-  <div class="not_found_container">
-    <p class="not_found_message">Oops! The page you're looking for doesn't exist.</p>        
-    <img src="/page_not_found.svg" alt="Not found" class="not_found_image">
-    <a href="/" class="not_found_button">Go Back Home</a>
-  </div>
 </body>
 </html>
