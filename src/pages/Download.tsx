@@ -85,8 +85,17 @@ const DownloadContent = () => {
     });
   };
 
-  const handleDownload = () => {
-    window.open("https://writeopia.io/download", "_blank");
+  const downloadLinks: Record<Platform, { label: string; labelPt: string; url: string }[]> = {
+    mac: [
+      { label: "Apple Silicon (.dmg)", labelPt: "Apple Silicon (.dmg)", url: "https://writeopia.io/apps-download/latest/Writeopia.dmg" },
+      { label: "Intel Mac (.dmg)", labelPt: "Intel Mac (.dmg)", url: "https://writeopia.io/apps-download/latest/Writeopia-intel.dmg" },
+    ],
+    windows: [
+      { label: "Get on Microsoft Store", labelPt: "Baixar na Microsoft Store", url: "https://apps.microsoft.com/detail/9NW5WL8NRM4H" },
+    ],
+    linux: [
+      { label: "Download .deb (Ubuntu/Debian)", labelPt: "Baixar .deb (Ubuntu/Debian)", url: "https://writeopia.io/apps-download/latest/Writeopia.deb" },
+    ],
   };
 
   return (
@@ -137,10 +146,17 @@ const DownloadContent = () => {
                         : `Baixe a versão mais recente para ${platformLabels[platform]}:`}
                     </p>
 
-                    <Button onClick={handleDownload} variant="hero" size="xl" className="group">
-                      <DownloadIcon className="w-5 h-5" />
-                      {language === "en" ? `Download for ${platformLabels[platform]}` : `Baixar para ${platformLabels[platform]}`}
-                    </Button>
+                    <div className="space-y-3">
+                      {downloadLinks[platform].map((link, i) => (
+                        <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="block">
+                          <Button variant={i === 0 ? "hero" : "default"} size="xl" className="w-full group">
+                            <DownloadIcon className="w-5 h-5" />
+                            {language === "en" ? link.label : link.labelPt}
+                            {i === 0 && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                          </Button>
+                        </a>
+                      ))}
+                    </div>
 
                     {/* Platform selector */}
                     <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
