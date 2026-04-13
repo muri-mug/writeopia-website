@@ -92,10 +92,10 @@ const DocsContent = () => {
               <button
                 onClick={() => switchTab("application")}
                 className={cn(
-                  "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-medium transition-all",
+                  "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold transition-all",
                   activeTab === "application"
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-gradient-primary text-white shadow-glow"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/80"
                 )}
               >
                 <BookOpen className="w-3.5 h-3.5" />
@@ -104,10 +104,10 @@ const DocsContent = () => {
               <button
                 onClick={() => switchTab("sdk")}
                 className={cn(
-                  "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-medium transition-all",
+                  "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold transition-all",
                   activeTab === "sdk"
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-gradient-primary text-white shadow-glow"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/80"
                 )}
               >
                 <Code2 className="w-3.5 h-3.5" />
