@@ -110,7 +110,7 @@ const DocSearch = ({ onSelect }: DocSearchProps) => {
                       >
                         <div className="flex flex-col gap-0.5 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-medium text-foreground text-sm">{r.page.title}</span>
+                            <span className="font-semibold text-sm">{r.page.title}</span>
                             <span className="text-xs text-muted-foreground">· {r.sectionTitle}</span>
                           </div>
                           <span className="text-xs text-muted-foreground truncate">{r.snippet}</span>
