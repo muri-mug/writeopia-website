@@ -115,6 +115,9 @@
   }
 
   /* cmdk element overrides — needed because cmdk bypasses cascade */
+  [cmdk-input-wrapper] svg {
+    color: white !important;
+  }
   [cmdk-input] {
     color: hsl(var(--popover-foreground)) !important;
     caret-color: hsl(var(--primary)) !important;
@@ -134,7 +137,7 @@
     background-color: hsl(0 0% 100% / 0.07) !important;
   }
   [cmdk-item][aria-selected="true"] {
-    background: var(--gradient-primary) !important;
+    background: hsl(303 100% 50% / 0.3) !important;
     color: white !important;
   }
   [cmdk-item][aria-selected="true"] span {
