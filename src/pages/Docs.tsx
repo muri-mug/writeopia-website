@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown, ChevronLeft, ExternalLink, BookOpen, Code2, Menu, X } from "lucide-react";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider, useTheme } from "@/contexts/ThemeContext";
@@ -88,31 +89,39 @@ const DocsContent = () => {
             </div>
 
             {/* Tab switcher */}
-            <div className="flex gap-1 p-1 rounded-lg bg-muted mb-6">
-              <button
-                onClick={() => switchTab("application")}
-                className={cn(
-                  "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold transition-all",
-                  activeTab === "application"
-                    ? "bg-gradient-primary text-white shadow-glow"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                )}
-              >
-                <BookOpen className="w-3.5 h-3.5" />
-                Application
-              </button>
-              <button
-                onClick={() => switchTab("sdk")}
-                className={cn(
-                  "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold transition-all",
-                  activeTab === "sdk"
-                    ? "bg-gradient-primary text-white shadow-glow"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                )}
-              >
-                <Code2 className="w-3.5 h-3.5" />
-                SDK
-              </button>
+            <div className="flex p-1 rounded-lg bg-muted mb-6">
+              {(["application", "sdk"] as const).map((tab) => {
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => switchTab(tab)}
+                    className={cn(
+                      "relative flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold transition-colors duration-150 z-10",
+                      isActive ? "text-white" : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="tab-bg"
+                        className="absolute inset-0 rounded-md bg-gradient-primary shadow-glow"
+                        transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                      />
+                    )}
+                    {!isActive && (
+                      <motion.div
+                        className="absolute inset-0 rounded-md bg-foreground/0 hover:bg-foreground/5"
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.15 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      {tab === "application" ? <BookOpen className="w-3.5 h-3.5" /> : <Code2 className="w-3.5 h-3.5" />}
+                      {tab === "application" ? "Application" : "SDK"}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Navigation */}
