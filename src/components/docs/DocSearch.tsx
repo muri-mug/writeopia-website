@@ -74,7 +74,7 @@ const DocSearch = ({ onSelect }: DocSearchProps) => {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-border/50 bg-muted/30 text-sm text-muted-foreground hover:bg-muted/50 hover:border-border transition-colors"
+        className="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-border bg-muted text-sm text-foreground/70 hover:text-foreground hover:bg-muted/70 transition-colors"
       >
         <Search className="w-3.5 h-3.5" />
         <span className="flex-1 text-left">Search docs…</span>
