@@ -102,35 +102,47 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* cmdk command palette — force readable colors in all themes */
-  [cmdk-input] {
-    color: hsl(var(--foreground)) !important;
-    caret-color: hsl(var(--primary)) !important;
+  /* CMD+K search: always dark regardless of theme */
+  .light [role="dialog"] {
+    --background:        0 0% 18%;
+    --popover:           0 0% 18%;
+    --popover-foreground:0 0% 100%;
+    --foreground:        0 0% 100%;
+    --muted:             0 0% 26%;
+    --muted-foreground:  0 0% 62%;
+    --border:            0 0% 30%;
+    --input:             0 0% 30%;
   }
 
+  /* cmdk element overrides — needed because cmdk bypasses cascade */
+  [cmdk-input] {
+    color: hsl(var(--popover-foreground)) !important;
+    caret-color: hsl(var(--primary)) !important;
+  }
   [cmdk-input]::placeholder {
     color: hsl(var(--muted-foreground)) !important;
   }
-
   [cmdk-group-heading] {
-    color: hsl(var(--foreground)) !important;
-    opacity: 0.6 !important;
+    color: hsl(var(--muted-foreground)) !important;
     font-weight: 600 !important;
   }
-
+  [cmdk-item] {
+    color: hsl(var(--popover-foreground)) !important;
+  }
+  /* Subtle hover: white overlay at low opacity */
+  [cmdk-item]:not([aria-selected="true"]):hover {
+    background-color: hsl(0 0% 100% / 0.07) !important;
+  }
   [cmdk-item][aria-selected="true"] {
     background: var(--gradient-primary) !important;
     color: white !important;
   }
-
-  [cmdk-item]:not([aria-selected="true"]) .text-muted-foreground {
-    color: hsl(var(--muted-foreground)) !important;
-  }
-
   [cmdk-item][aria-selected="true"] span {
     color: white !important;
   }
-
+  [cmdk-item]:not([aria-selected="true"]) .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
   [cmdk-empty] {
     color: hsl(var(--muted-foreground)) !important;
   }
