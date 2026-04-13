@@ -1,4 +1,5 @@
 import { Linkedin, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import logo from "@/assets/logo-completo.svg";
@@ -27,6 +28,9 @@ const Footer = () => {
               </a>
             ))}
           </div>
+          <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline">
+            {t("footer.l.privacy")}
+          </Link>
         </div>
         <div className="mt-8 pt-6 border-t border-border/50 flex flex-col items-center gap-2">
           <p className="text-muted-foreground text-sm">{t("footer.copyright")}</p>
