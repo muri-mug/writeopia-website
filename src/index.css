@@ -102,6 +102,39 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* cmdk command palette — force readable colors in all themes */
+  [cmdk-input] {
+    color: hsl(var(--foreground)) !important;
+    caret-color: hsl(var(--primary)) !important;
+  }
+
+  [cmdk-input]::placeholder {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  [cmdk-group-heading] {
+    color: hsl(var(--foreground)) !important;
+    opacity: 0.6 !important;
+    font-weight: 600 !important;
+  }
+
+  [cmdk-item][aria-selected="true"] {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+  }
+
+  [cmdk-item]:not([aria-selected="true"]) .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  [cmdk-item][aria-selected="true"] span {
+    color: white !important;
+  }
+
+  [cmdk-empty] {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
   /* Fix browser autofill overriding input background in dark mode */
   .dark input:-webkit-autofill,
   .dark input:-webkit-autofill:hover,
