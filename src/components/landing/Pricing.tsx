@@ -72,12 +72,12 @@ const Pricing = () => {
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-primary text-sm font-semibold text-primary-foreground">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-primary text-sm font-semibold text-white">
                   {t("pricing.popular")}
                 </div>
               )}
               <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${plan.popular ? "bg-gradient-primary shadow-glow" : "bg-muted"}`}>
-                <plan.icon className={`w-7 h-7 ${plan.popular ? "text-primary-foreground" : "text-primary"}`} />
+                <plan.icon className={`w-7 h-7 ${plan.popular ? "text-white" : "text-primary"}`} />
               </div>
               <h3 className="font-display font-bold text-2xl mb-2 text-foreground">{plan.name}</h3>
               <p className="text-muted-foreground mb-6">{plan.description}</p>

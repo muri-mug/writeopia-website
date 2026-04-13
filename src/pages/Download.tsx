@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download as DownloadIcon, ArrowRight, Check } from "lucide-react";
@@ -278,9 +279,9 @@ const DownloadContent = () => {
       <footer className="py-6 border-t border-border/40">
         <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">© 2026 Writeopia.</p>
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            {language === "en" ? "Privacy" : "Privacidade"}
-          </a>
+          <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline">
+            {language === "en" ? "Privacy Policy" : "Política de privacidade"}
+          </Link>
         </div>
       </footer>
     </div>

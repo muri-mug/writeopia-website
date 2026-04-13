@@ -49,7 +49,7 @@ const Security = () => {
           >
             <div className="relative p-8 rounded-3xl glass border border-border/50 shadow-elevated">
               <div className="w-20 h-20 rounded-2xl bg-gradient-primary flex items-center justify-center mb-8 shadow-glow animate-pulse-glow">
-                <Shield className="w-10 h-10 text-primary-foreground" />
+                <Shield className="w-10 h-10 text-white" />
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <div className="p-4 rounded-xl bg-muted/50">
