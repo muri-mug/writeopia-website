@@ -1,5 +1,6 @@
 import { Code2, Blocks, Github } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -91,12 +92,12 @@ implementation("io.writeopia:writeopia-network:1.0.0")`}</code>
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
         >
-          <a href="/docs">
+          <Link to="/docs">
             <Button variant="outline" size="lg" className="gap-2">
               <Code2 className="w-4 h-4" />
               {t("dev.cta")}
             </Button>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
