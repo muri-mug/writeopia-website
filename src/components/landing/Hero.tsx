@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import NetworkBackground from "./NetworkBackground";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -13,6 +14,7 @@ const Hero = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/10 to-transparent rounded-full" />
+        <NetworkBackground />
       </div>
 
       <div className="absolute inset-0 opacity-20" style={{
